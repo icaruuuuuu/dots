@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cat ~/.bashrc | grep -v "PS1" > /tmp/.bashrc && mv /tmp/.bashrc ~/.bashrc
+echo 'PS1="\n╭─ \u * \w $(git branch 2> /dev/null)\n╰───> "' >> ~/.bashrc
