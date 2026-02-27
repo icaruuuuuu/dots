@@ -5,7 +5,8 @@
   "positionY": "top",
   "layer": "overlay",
   "control-center-layer": "top",
-  "layer-shell": true,
+  "control-center-exclusive-zone": true,
+  "layer-shell": false,
   "layer-shell-cover-screen": true,
   "cssPriority": "user",
   "control-center-margin-top": 0,
@@ -22,7 +23,7 @@
   "fit-to-screen": true,
   "relative-timestamps": true,
   "control-center-width": 300,
-  "control-center-height": 600,
+  "control-center-height": -1,
   "notification-window-width": 500,
   "keyboard-shortcuts": true,
   "notification-grouping": true,
@@ -57,6 +58,7 @@
     "title",
     "dnd",
     "notifications",
+    "buttons-grid",
     "mpris"
   ],
   "widget-config": {
@@ -81,21 +83,29 @@
       "text": "Label Text"
     },
     "mpris": {
-	    "image-size": 66,
+	    "image-size": 76,
 	    "image-radius": 6,
 	    "auto-hide": "true",
-	    "show-album-art": "never"
+	    "show-album-art": "always"
     },
     "buttons-grid": {
-      "buttons-per-row": 7,
+      "buttons-per-row": 3,
       "actions": [
         {
-          "label": "直",
-          "type": "toggle",
-          "active": true,
-          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
-          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
-        }
+          "label": "",
+          "type": "normal",
+          "command": "reboot"
+        },
+	{
+	  "label": "",
+	  "type": "normal",
+	  "command": "poweroff"
+	},
+	{
+	  "label": "",
+	  "type": "normal",
+	  "command": "login-ctl terminate-user $USER"
+	}
       ]
     }
   }

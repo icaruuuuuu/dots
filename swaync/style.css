@@ -1,5 +1,5 @@
 :root {
-  --cc-bg: rgba(46, 46, 46, 0.7);
+  --cc-bg: rgba(46, 46, 46, 1.0);
   --noti-border-color: rgba(255, 255, 255, 0.15);
   --noti-bg: 48, 48, 48;
   --noti-bg-alpha: 0.8;
@@ -364,6 +364,8 @@ notificationwindow, blankwindow {
 /*** Widgets ***/
 .widget {
   margin: 8px;
+  margin-bottom: 0px;
+  margin-top: 0px;
   padding: 8px;
   border-radius: var(--border-radius);
 }
@@ -402,19 +404,22 @@ notificationwindow, blankwindow {
 
 /* Mpris widget */
 .widget-mpris {
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
   background: transparent;
+  box-shadow: none;
 }
 
 .widget-mpris-player {
   background-image: none;
   background: transparent;
+  box-shadow: none;
 }
 
 .widget-mpris-player, .mpris-background,
 .widget-mpris-player, .mpris-overlay {
   background-image: none;
-  background: transparent;
+  background: rgba(68,68,68,1.0);
   filter: none;
 }
 
