@@ -1,2 +1,5 @@
 [window]
 padding = { x = 10, y = 5}
+
+[font]
+normal = { family = "JetBrains Mono Nerd Font Mono", style = "regular"}
