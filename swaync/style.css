@@ -378,6 +378,7 @@ notificationwindow, blankwindow {
 
 .widget-title > button {
   margin-left: 8px;
+  padding: 1px;
   border-radius: var(--border-radius);
 }
 
