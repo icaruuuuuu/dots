@@ -1,0 +1,9 @@
+;; system clock configuration
+
+(defwidget clock [value]
+  (box :class "clock"
+       :halign "center"
+       :orientation "h"
+       value
+  )
+)

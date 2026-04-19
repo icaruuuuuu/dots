@@ -1,0 +1,9 @@
+;; base tray configuration
+(defwidget tray []
+  (systray
+    :orientation "h"
+    :spacing 5
+    :icon-size 18
+    :prepend-new true
+  )
+)

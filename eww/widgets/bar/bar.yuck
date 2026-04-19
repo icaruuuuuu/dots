@@ -1,0 +1,40 @@
+;; main bar config
+(include './widgets/bar/components/clock.yuck')
+(include './widgets/bar/components/workspaces.yuck')
+(include './widgets/bar/components/tray.yuck')
+
+(defpoll time   :interval "1s"
+                :initial "TIME"
+                `date "+%H:%M"`
+)
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "30px"
+                      :anchor "top center"
+              )
+  :exclusive true
+
+  (box :orientation "h"
+       :class "parent"
+    (box :halign "start"
+      :class "wleft"
+      :spacing 10
+      (workspaces)
+    )
+    (box :halign "center"
+      :class "wcenter"
+      :spacing 10
+      (clock :value time)
+    )
+    (box :halign "end"
+      :class "wright"
+      :spacing 10
+      (tray)
+    )
+  )
+)
