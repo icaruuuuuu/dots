@@ -1,0 +1,64 @@
+/* ~/.config/eww/scss/_topbar.scss */
+
+.topbar-container {
+  background-color: $bg-black;
+  color: $text-green;
+
+  margin: 0px;
+  border-radius: 0px 0px 6px 6px;
+  padding: 0px 10px;
+}
+
+
+
+
+/* =========================================================
+   LEFT MODULES
+========================================================= */
+.powermenu-btn {
+  color: $accent-red;
+  margin-right: 5px; 
+  font-weight: bold;
+}
+
+.powermenu-btn:hover {
+  color: $accent-white; 
+}
+
+.focused-window {
+  color: $accent-white;
+}
+
+
+
+
+/* =========================================================
+   CENTER MODULES
+========================================================= */
+.workspace {
+  color: $accent-white;
+}
+
+.workspace.active {
+  color: $accent-blue;
+  font-weight: bold;
+}
+
+.workspace:hover {
+  color: $accent-white;
+}
+
+
+
+
+/* =========================================================
+   RIGHT MODULES
+========================================================= */
+.tray {
+  margin-right: 5px; 
+}
+
+.clock {
+  color: $accent-white;
+  font-weight: bold;
+}

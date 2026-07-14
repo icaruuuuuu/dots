@@ -1,0 +1,51 @@
+;; =========================================================
+;; MAIN BAR LAYOUT
+;; =========================================================
+(defwidget topbar_layout []
+  (centerbox :class "topbar-container" :orientation "h"
+    (left_modules)
+    (center_modules)
+    (right_modules)))
+
+;; =========================================================
+;; LEFT MODULES (Powermenu and Focused Window)
+;; =========================================================
+(defwidget left_modules []
+  (box :class "left-modules" :orientation "h" :space-evenly false :halign "start"
+    ;; Powermenu Button
+    (button :class "powermenu-btn" 
+            :onclick "scripts/powermenu.sh &" 
+            "⏻")
+    
+    ;; Focused Window Title
+    (label :class "focused-window" 
+           :text focused_window 
+           :limit-width 40)))
+
+;; =========================================================
+;; CENTER MODULES (Workspaces)
+;; =========================================================
+(defwidget center_modules []
+  (box :class "center-modules" :orientation "h" :space-evenly true :halign "center" :spacing 5
+    ;; We use the active_workspace variable to apply a dynamic CSS class
+    (button :class {active_workspace == 1 ? "workspace active" : "workspace"} :onclick "wmctrl -s 0" "1")
+    (button :class {active_workspace == 2 ? "workspace active" : "workspace"} :onclick "wmctrl -s 1" "2")
+    (button :class {active_workspace == 3 ? "workspace active" : "workspace"} :onclick "wmctrl -s 2" "3")
+    (button :class {active_workspace == 4 ? "workspace active" : "workspace"} :onclick "wmctrl -s 3" "4")
+    (button :class {active_workspace == 5 ? "workspace active" : "workspace"} :onclick "wmctrl -s 4" "5")))
+
+;; =========================================================
+;; RIGHT MODULES (System Tray and Clock)
+;; =========================================================
+(defwidget right_modules []
+  (box :class "right-modules" :orientation "h" :space-evenly false :halign "end"
+    ;; Eww has a native systray widget in newer versions
+    (systray :class "tray" 
+             :spacing 5 
+             :orientation "h" 
+             :icon-size 16)
+    
+    ;; Clock
+    (label :class "clock" 
+           :text time)))
+
