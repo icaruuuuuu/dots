@@ -1,8 +1,8 @@
 /* ~/.config/eww/scss/_topbar.scss */
 
 .topbar-container {
-  background-color: $bg-black;
-  color: $text-green;
+  background-color: $bg;
+  color: $white;
 
   margin: 0px;
   border-radius: 0px 0px 6px 6px;
@@ -22,32 +22,39 @@
 }
 
 .powermenu-btn:hover {
-  color: $accent-white; 
+  color: $white; 
 }
 
 .focused-window {
-  color: $accent-white;
+  color: $white;
 }
 
 
 
 
 /* =========================================================
-   CENTER MODULES
+   CENTER MODULES (Pill Style Workspaces)
 ========================================================= */
+
 .workspace {
-  color: $accent-white;
+  min-height: 9px;
+  min-width: 18px;
+  
+  border-radius: 6px; 
+  
+  background-color: $fg; 
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .workspace.active {
-  color: $accent-blue;
-  font-weight: bold;
+  min-width: 40px;
+  background-color: $white; 
 }
 
 .workspace:hover {
-  color: $accent-white;
+  background-color: $fg;
 }
-
 
 
 
@@ -59,6 +66,6 @@
 }
 
 .clock {
-  color: $accent-white;
+  color: $white;
   font-weight: bold;
 }

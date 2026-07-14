@@ -5,12 +5,17 @@
 ;; =========================================================
 (defwindow topbar
   :monitor 0
-  :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "0px"
                       :width "50%"
-                      :height "25px"
+                      :height "22px"
                       :anchor "top center")
-  :reserve (struts :side "top" :distance "40px")
-  (topbar_layout)) ;; Chama o widget que está em topbar.yuck
+  :stacking "fg"
+  :reserve (struts :side "top" :distance "80px")
+  :focusable false
+  :exclusive true
+  :layer "top"
+  :windowtype "dock"
+  :wm-ignore false
+  (topbar_layout)) ;; 
 

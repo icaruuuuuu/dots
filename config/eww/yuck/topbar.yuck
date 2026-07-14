@@ -22,17 +22,28 @@
            :text focused_window 
            :limit-width 40)))
 
+
+
 ;; =========================================================
 ;; CENTER MODULES (Workspaces)
 ;; =========================================================
 (defwidget center_modules []
-  (box :class "center-modules" :orientation "h" :space-evenly true :halign "center" :spacing 5
-    ;; We use the active_workspace variable to apply a dynamic CSS class
-    (button :class {active_workspace == 1 ? "workspace active" : "workspace"} :onclick "wmctrl -s 0" "1")
-    (button :class {active_workspace == 2 ? "workspace active" : "workspace"} :onclick "wmctrl -s 1" "2")
-    (button :class {active_workspace == 3 ? "workspace active" : "workspace"} :onclick "wmctrl -s 2" "3")
-    (button :class {active_workspace == 4 ? "workspace active" : "workspace"} :onclick "wmctrl -s 3" "4")
-    (button :class {active_workspace == 5 ? "workspace active" : "workspace"} :onclick "wmctrl -s 4" "5")))
+  (box :class "center-modules" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 8
+    
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'" 
+      (box :class {active_workspace == 1 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })'"  
+      (box :class {active_workspace == 2 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })'" 
+      (box :class {active_workspace == 3 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })'" 
+      (box :class {active_workspace == 4 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
+      (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center"))))
 
 ;; =========================================================
 ;; RIGHT MODULES (System Tray and Clock)
