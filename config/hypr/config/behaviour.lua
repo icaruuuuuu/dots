@@ -35,6 +35,16 @@ hl.window_rule({
     float = true,
 })
 
+hl.window_rule({
+    match = {
+        class = "org.pulseaudio.pavucontrol"
+    },
+
+    float = true,        
+    size = {"(monitor_w * 0.7)","(monitor_h * 0.5)"}, 
+    move = {"(monitor_w / 6.66)",30}, 
+})
+
 hl.config({
     misc = {
         force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
@@ -61,7 +71,7 @@ hl.config({
 
 hl.monitor({
     output   = "",
-    mode     = "preferred",
+    mode     = "1920x1080@60.00Hz",
     position = "auto",
     scale    = "auto",
 })
