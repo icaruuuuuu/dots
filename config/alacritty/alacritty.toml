@@ -1,0 +1,4 @@
+[general]
+import = [
+	"~/.config/alacritty/wallust-colors.toml"
+]
