@@ -11,29 +11,23 @@
 
 
 
-
 /* =========================================================
    LEFT MODULES
 ========================================================= */
-.powermenu-btn {
-  color: $accent-red;
-  margin-right: 5px; 
-  font-weight: bold;
-}
-
-.powermenu-btn:hover {
-  color: $white; 
-}
-
-.focused-window {
+.clock {
   color: $white;
+  font-weight: bold;
+  margin: 0px 5px 0px 5px;
 }
 
+.tray {
+  margin-right: 5px; 
+}
 
 
 
 /* =========================================================
-   CENTER MODULES (Pill Style Workspaces)
+   CENTER MODULES
 ========================================================= */
 
 .workspace {
@@ -48,7 +42,7 @@
 }
 
 .workspace.active {
-  min-width: 40px;
+  min-width: 30px;
   background-color: $white; 
 }
 
@@ -61,11 +55,29 @@
 /* =========================================================
    RIGHT MODULES
 ========================================================= */
-.tray {
+.powermenu-btn {
+  color: $accent-red;
   margin-right: 5px; 
+  font-weight: bold;
 }
 
-.clock {
-  color: $white;
-  font-weight: bold;
+.powermenu-btn:hover {
+  color: $white; 
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+.icon-btn {
+  padding: 0px 9px 0px 9px;
+  margin: 3px 0px 3px 0px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 900;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255,255,255,0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }

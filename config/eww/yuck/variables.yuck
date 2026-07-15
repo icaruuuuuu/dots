@@ -1,10 +1,10 @@
 ;; ~/.config/eww/yuck/variables.yuck
 
-;; Gets system time every 1 second
-(defpoll time :interval "1s" "date '+%H:%M'")
+(defpoll time :interval "1s" "date '+%H : %M'")
 
-;; Listens to the WM to know which window is focused (generic example)
+(defpoll hour :interval "1s" "date '+%H'")
+(defpoll minute :interval "1s" "date '+%M'")
+
 (defvar focused_window "No focused window")
 
-;; Example variable for the active workspace
-(defvar active_workspace 1)
+(deflisten active_workspace :initial "1" "scripts/get-workspace")

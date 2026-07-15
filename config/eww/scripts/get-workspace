@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+hyprctl activeworkspace | awk 'NR==1 {print $3}'
+
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | awk -F '>>' '/^workspace>>/ {print $2; fflush()}'

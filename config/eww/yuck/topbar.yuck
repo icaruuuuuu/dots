@@ -8,27 +8,32 @@
     (right_modules)))
 
 ;; =========================================================
-;; LEFT MODULES (Powermenu and Focused Window)
+;; LEFT MODULES (Power, Volume, Brightness, Bluetooth)
 ;; =========================================================
 (defwidget left_modules []
-  (box :class "left-modules" :orientation "h" :space-evenly false :halign "start"
-    ;; Powermenu Button
-    (button :class "powermenu-btn" 
-            :onclick "scripts/powermenu.sh &" 
-            "⏻")
-    
-    ;; Focused Window Title
-    (label :class "focused-window" 
-           :text focused_window 
-           :limit-width 40)))
+  (box :class "left-modules" :orientation "h" :space-evenly false :halign "start" :spacing 0
+    ;; Hour
+    (label :class "clock" 
+           :text time)
 
 
+    ;; Pavucontrol 
+    (button :class "icon-btn" :cursor "pointer"
+            :onclick "pavucontrol &"
+            "")
+
+    ;; Tray
+    (systray :class "tray" 
+             :spacing 5 
+             :orientation "h" 
+             :icon-size 16)
+))
 
 ;; =========================================================
-;; CENTER MODULES (Workspaces)
+;; CENTER MODULES
 ;; =========================================================
 (defwidget center_modules []
-  (box :class "center-modules" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 8
+  (box :class "center-modules" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 4
     
     (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'" 
       (box :class {active_workspace == 1 ? "workspace active" : "workspace"} :valign "center"))
@@ -43,20 +48,21 @@
       (box :class {active_workspace == 4 ? "workspace active" : "workspace"} :valign "center"))
       
     (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
-      (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center"))))
+      (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center"))
+))
 
 ;; =========================================================
 ;; RIGHT MODULES (System Tray and Clock)
 ;; =========================================================
 (defwidget right_modules []
-  (box :class "right-modules" :orientation "h" :space-evenly false :halign "end"
-    ;; Eww has a native systray widget in newer versions
-    (systray :class "tray" 
-             :spacing 5 
-             :orientation "h" 
-             :icon-size 16)
+  (box :class "right-modules" :orientation "h" :space-evenly false :halign "end" :spacing 0
+    ;; Brightness
+    (button :class "icon-btn brightness" :cursor "pointer" 
+            :onclick "" 
+            "")
     
-    ;; Clock
-    (label :class "clock" 
-           :text time)))
-
+    ;; Power
+    (button :class "icon-btn power-btn" :cursor "pointer"
+            :onclick "scripts/powermenu.sh &" 
+            "")
+))
