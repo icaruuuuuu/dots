@@ -21,7 +21,7 @@
   "widget-config": {
     "mpris": {
       "image-size": 55,
-      "image-radius": 12,
+      "image-radius": 1,
       "show-album-art": "always"
     },
     "buttons-grid": {
