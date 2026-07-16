@@ -6,8 +6,9 @@
   "control-center-margin-bottom": 10,
   "control-center-margin-right": 10,
   "control-center-margin-left": 10,
-  "control-center-width": 380,
+  "control-center-width": 450,
   "fit-to-screen": true,
+  "notification-grouping": true,
   
   "widgets": [
     "mpris",
@@ -19,8 +20,9 @@
   
   "widget-config": {
     "mpris": {
-      "image-size": 96,
-      "image-radius": 12
+      "image-size": 55,
+      "image-radius": 12,
+      "show-album-art": "always"
     },
     "buttons-grid": {
       "buttons-per-row": 4,

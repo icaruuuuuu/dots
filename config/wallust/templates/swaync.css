@@ -1,18 +1,34 @@
 /* =========================================================
-   CORES DO WALLUST (Renderizadas automaticamente)
+   COLORS
 ========================================================= */
 @define-color bg #0b0b09;
 @define-color fg #161614;
+@define-color md #10100d;
 @define-color white #FFFFFF;
-@define-color text-color {{color15}};
 @define-color hover-bg rgba(255, 255, 255, 0.1);
 
+@define-color color1 {{color1}};
+@define-color color2 {{color2}};
+@define-color color3 {{color3}};
+@define-color color4 {{color4}};
+@define-color color5 {{color5}};
+@define-color color6 {{color6}};
+@define-color color7 {{color7}};
+@define-color color8 {{color8}};
+@define-color color9 {{color9}};
+@define-color color10 {{color10}};
+@define-color color11 {{color11}};
+@define-color color12 {{color12}};
+@define-color color13 {{color13}};
+@define-color color14 {{color14}};
+@define-color color15 {{color15}};
 /* =========================================================
-   RESET E PAINEL PRINCIPAL
+   GENERAL
 ========================================================= */
 * {
   font-family: "JetBrainsMono Nerd Font", "Font Awesome 7 Free Solid", sans-serif;
   font-weight: bold;
+  border-radius: 8px;
 }
 
 .control-center {
@@ -23,13 +39,12 @@
 }
 
 /* =========================================================
-   PLAYER DE MÍDIA (MPRIS)
+   MPRIS
 ========================================================= */
 .widget-mpris {
   background-color: @fg;
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
 .widget-mpris-title {
@@ -38,39 +53,49 @@
 }
 
 .widget-mpris-subtitle {
-  color: @text-color;
+  color: @color15;
   font-size: 12px;
 }
 
+.widget-mpris-player {
+  all: unset;
+  background: rgba(0,0,0,0.0)
+}
+
+.widget-mpris-player .mpris-background {
+  all: unset;
+  filter: blur(8px);
+  background: rgba(255,0,0,1.0)
+} 
+
 /* =========================================================
-   POWER MENU (BUTTONS GRID)
+   BUTTONS GRID
 ========================================================= */
 .widget-buttons-grid {
-  font-size: 24px;
-  background-color: transparent;
-  margin-bottom: 15px;
+  font-size: 20px;
+  background-color: @fg;
+  margin-bottom: 5px;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
-  background-color: @fg;
-  color: @text-color;
+  background-color: transparent;
+  color: @color7;
   border-radius: 12px;
-  padding: 15px 0px;
+  padding: 5px 0px;
   transition: all 0.3s ease;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background-color: @hover-bg;
   color: @white;
 }
 
 /* =========================================================
-   NÃO PERTURBE (DND)
+   DND
 ========================================================= */
 .widget-dnd {
   background-color: @fg;
   border-radius: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   padding: 10px;
 }
 
@@ -80,21 +105,21 @@
 }
 
 .widget-dnd>switch:checked {
-  background-color: @text-color;
+  background-color: @color15;
 }
 
 /* =========================================================
-   TÍTULO E BOTÃO DE LIMPAR TUDO
+   TITLE
 ========================================================= */
 .widget-title {
   color: @white;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .widget-title>button {
   background-color: @fg;
-  color: @text-color;
+  color: @color7;
   border-radius: 6px;
   padding: 5px 10px;
   transition: all 0.3s ease;
@@ -106,20 +131,40 @@
 }
 
 /* =========================================================
-   NOTIFICAÇÕES (CARDS)
+   NOTIFICATIONS
 ========================================================= */
+.widget-notifications {
+  background-color: transparent;
+}
+
 .notification-row {
   outline: none;
+  border: none;
   margin-bottom: 10px;
+  padding: 0;
 }
 
 .notification {
+  all: unset;
   background-color: @fg;
   border-radius: 12px;
   padding: 15px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+
+.notification .time {
+  color: @color15;
 }
 
 .notification-default-action,
 .notification-action {
   color: @white;
+}
+
+.floating-notifications .background:focus {
+  background-color: @white;
+}
+
+.notification-group {
+  background-color: transparent;
 }
