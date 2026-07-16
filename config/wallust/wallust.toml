@@ -47,6 +47,12 @@ saturation = 10
 alacritty.template = 'alacritty.toml'
 alacritty.target = '~/.config/alacritty/wallust-colors.toml'
 
+eww.template = 'eww.scss'
+eww.target = '~/.config/eww/scss/_colors.scss'
+
+rofi.template = 'rofi.rasi'
+rofi.target = '~/.config/rofi/wallust-colors.rasi'
+
 [hooks]
 # Run commands when wallust is invoked. Useful to avoid scripting.
 #wallpaper = """swww img "$(find ~/Media/Pictures/Wallpapers -iregex '.*.\\(jpg\\|jpeg\\|png\\|gif\\)' -type f | shuf -n 1)" """

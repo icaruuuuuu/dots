@@ -1,4 +1,6 @@
-/* ~/.config/eww/scss/_topbar.scss */
+/* =========================================================
+   GENERAL
+========================================================= */
 
 .topbar-container {
   background-color: $bg;
@@ -9,13 +11,27 @@
   padding: 0px 10px;
 }
 
+.icon-btn {
+  color: $color7;
+  padding: 0px 9px 0px 9px;
+  margin: 3px 0px 3px 0px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 900;
+}
+
+.icon-btn:hover {
+  color: $white;
+  background-color: rgba(255,255,255,0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
 
 /* =========================================================
    LEFT MODULES
 ========================================================= */
 .clock {
-  color: $white;
+  color: $color15;
   font-weight: bold;
   margin: 0px 5px 0px 5px;
 }
@@ -43,7 +59,7 @@
 
 .workspace.active {
   min-width: 30px;
-  background-color: $white; 
+  background-color: $color15; 
 }
 
 .workspace:hover {
@@ -56,7 +72,7 @@
    RIGHT MODULES
 ========================================================= */
 .powermenu-btn {
-  color: $accent-red;
+  color: $color15;
   margin-right: 5px; 
   font-weight: bold;
 }
@@ -66,18 +82,3 @@
 }
 
 
-/* =========================================================
-   GENERAL
-========================================================= */
-.icon-btn {
-  padding: 0px 9px 0px 9px;
-  margin: 3px 0px 3px 0px;
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  font-weight: 900;
-}
-
-.icon-btn:hover {
-  background-color: rgba(255,255,255,0.2);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}

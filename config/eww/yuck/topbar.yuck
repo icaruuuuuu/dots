@@ -62,7 +62,7 @@
             "")
     
     ;; Power
-    (button :class "icon-btn power-btn" :cursor "pointer"
+    (button :class "icon-btn powermenu-btn" :cursor "pointer"
             :onclick "scripts/powermenu.sh &" 
             "")
 ))
