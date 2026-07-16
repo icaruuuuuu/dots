@@ -2,3 +2,7 @@
 import = [
 	"~/.config/alacritty/wallust-colors.toml"
 ]
+
+[window.padding]
+x = 10
+y = 10
