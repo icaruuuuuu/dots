@@ -1,0 +1,125 @@
+/* =========================================================
+   CORES DO WALLUST (Renderizadas automaticamente)
+========================================================= */
+@define-color bg #0b0b09;
+@define-color fg #161614;
+@define-color white #FFFFFF;
+@define-color text-color {{color15}};
+@define-color hover-bg rgba(255, 255, 255, 0.1);
+
+/* =========================================================
+   RESET E PAINEL PRINCIPAL
+========================================================= */
+* {
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 7 Free Solid", sans-serif;
+  font-weight: bold;
+}
+
+.control-center {
+  background-color: @bg;
+  border-radius: 6px;
+  border: 2px solid @fg;
+  padding: 15px;
+}
+
+/* =========================================================
+   PLAYER DE MÍDIA (MPRIS)
+========================================================= */
+.widget-mpris {
+  background-color: @fg;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.widget-mpris-title {
+  color: @white;
+  font-size: 14px;
+}
+
+.widget-mpris-subtitle {
+  color: @text-color;
+  font-size: 12px;
+}
+
+/* =========================================================
+   POWER MENU (BUTTONS GRID)
+========================================================= */
+.widget-buttons-grid {
+  font-size: 24px;
+  background-color: transparent;
+  margin-bottom: 15px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  background-color: @fg;
+  color: @text-color;
+  border-radius: 12px;
+  padding: 15px 0px;
+  transition: all 0.3s ease;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background-color: @hover-bg;
+  color: @white;
+}
+
+/* =========================================================
+   NÃO PERTURBE (DND)
+========================================================= */
+.widget-dnd {
+  background-color: @fg;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.widget-dnd>switch {
+  background-color: @bg;
+  border-radius: 12px;
+}
+
+.widget-dnd>switch:checked {
+  background-color: @text-color;
+}
+
+/* =========================================================
+   TÍTULO E BOTÃO DE LIMPAR TUDO
+========================================================= */
+.widget-title {
+  color: @white;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.widget-title>button {
+  background-color: @fg;
+  color: @text-color;
+  border-radius: 6px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.widget-title>button:hover {
+  background-color: @hover-bg;
+  color: @white;
+}
+
+/* =========================================================
+   NOTIFICAÇÕES (CARDS)
+========================================================= */
+.notification-row {
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.notification {
+  background-color: @fg;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.notification-default-action,
+.notification-action {
+  color: @white;
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "center",
+  "positionY": "top",
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "control-center-width": 380,
+  "fit-to-screen": true,
+  
+  "widgets": [
+    "mpris",
+    "buttons-grid",
+    "dnd",
+    "title",
+    "notifications"
+  ],
+  
+  "widget-config": {
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12
+    },
+    "buttons-grid": {
+      "buttons-per-row": 4,
+      "actions": [
+        {
+          "label": "", 
+          "command": "systemctl poweroff"
+        },
+        {
+          "label": "",
+          "command": "systemctl reboot"
+        },
+        {
+          "label": "",
+          "command": "hyprctl dispatch 'hl.dispatch(hl.dsp.exit())'"
+        },
+        {
+          "label": "",
+          "command": "hyprlock" 
+        }
+      ]
+    },
+    "dnd": {
+      "text": "Do not disturb"
+    },
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear all"
+    }
+  }
+}

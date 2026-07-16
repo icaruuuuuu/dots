@@ -53,6 +53,9 @@ eww.target = '~/.config/eww/scss/_colors.scss'
 rofi.template = 'rofi.rasi'
 rofi.target = '~/.config/rofi/wallust-colors.rasi'
 
+swaync.template = 'swaync.css'
+swaync.target = '~/.config/swaync/style.css'
+
 [hooks]
 # Run commands when wallust is invoked. Useful to avoid scripting.
 #wallpaper = """swww img "$(find ~/Media/Pictures/Wallpapers -iregex '.*.\\(jpg\\|jpeg\\|png\\|gif\\)' -type f | shuf -n 1)" """
