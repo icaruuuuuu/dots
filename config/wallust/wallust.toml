@@ -45,13 +45,13 @@ saturation = 10
 
 [templates]
 alacritty.template = 'alacritty.toml'
-alacritty.target = '~/.config/alacritty/wallust-colors.toml'
+alacritty.target = '~/.config/alacritty/colors.toml'
 
 eww.template = 'eww.scss'
 eww.target = '~/.config/eww/scss/_colors.scss'
 
 rofi.template = 'rofi.rasi'
-rofi.target = '~/.config/rofi/wallust-colors.rasi'
+rofi.target = '~/.config/rofi/colors.rasi'
 
 swaync.template = 'swaync.css'
 swaync.target = '~/.config/swaync/style.css'

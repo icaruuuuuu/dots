@@ -1,5 +1,6 @@
 programs = {
-	terminal = "alacritty"
+	terminal = "alacritty",
+	launcher = "rofi -show drun"
 }
 
 

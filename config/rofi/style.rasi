@@ -1,4 +1,5 @@
-@theme "wallust-colors"
+@theme "colors"
+
 * {
     font: "JetBrainsMono Nerd Font 12";
     

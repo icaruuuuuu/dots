@@ -1,0 +1,29 @@
+#!/bin/bash
+DIR="$HOME/wallpapers"
+THUMBS="$HOME/.cache/wallpapers-thumbs"
+LIST_FILE="/tmp/wallpapers_list.txt"
+
+ls "$DIR" > "$LIST_FILE"
+
+get_page() {
+    # O script puxa o valor atual da variável direto do Eww
+    local index=$(eww get current_index)
+    
+    # Tratamento de segurança: se o eww estiver iniciando e a variável voltar vazia, assume 0
+    if [ -z "$index" ]; then
+        index=0
+    fi
+    
+    local total=$(wc -l < "$LIST_FILE")
+    
+    # Faz o corte e gera o JSON baseado no índice que puxou do Eww
+    sed -n "$((index + 1)),$((index + 5))p" "$LIST_FILE" | jq -R . | jq -s .
+}
+
+case "$1" in
+    get_page) get_page "$2" ;;
+    apply) 
+        awww img "$DIR/$2" --transition-type center
+        wallust run -s "$DIR/$2"
+        ;;
+esac

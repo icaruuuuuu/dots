@@ -19,3 +19,16 @@
   :wm-ignore false
   (topbar_layout)) ;; 
 
+(defwindow wallpaperpicker
+  :monitor 0                  
+  :stacking "fg"              
+  :exclusive false             
+  :namespace "eww"            
+  :geometry (geometry :x "0%"
+                      :y "10%"
+                      :width "500px"
+                      :height "150px"
+                      :anchor "top center")
+  
+  ;; Aqui nós chamamos o widget que você criou no eww.yuck
+  (wallpaper_picker))
