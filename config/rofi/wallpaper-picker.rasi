@@ -1,7 +1,6 @@
 @theme "colors"
 
 configuration{
-    font: "Noto Sans 20";
     show-icons: true;
     location: 6;
     sidebar-mode: false;
@@ -11,14 +10,14 @@ configuration{
 }
 
 * {
-    font: "Noto Sans 14";
+    font: "JetBrainsMono Nerd Font 12";
     background-color: transparent;
-    text-color: @fg;
+    text-color: @white;
 }
 
 window {
     width: 99%;
-    height: 38%;
+    height: 40%;
     background-color: @bg; 
     border-radius: 15px; 
     padding: 20px;
@@ -53,4 +52,16 @@ element-text {
     horizontal-align: 0.5;
     vertical-align: 0.5;
     margin: 10px 0px 0px 0px;
+}
+
+inputbar {
+    font: "JetBrainsMono Nerd Font 14";
+    background-color: @fg;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0px 0px 12px 0px;
+}
+
+prompt {
+    text-color: @color15;
 }

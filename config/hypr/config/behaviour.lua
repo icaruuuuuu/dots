@@ -60,8 +60,8 @@ hl.config({
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-    hl.exec_cmd("awww-daemon &")
     hl.exec_cmd("eww open topbar &")
+    hl.exec_cmd("awww-daemon &")
 end)
 
 ------------------

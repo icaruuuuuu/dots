@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Props to Rliop913 on Github for making this marvelous script 
 CACHE_ROOT=~/.wallpapers/cached_imgs
 WALLPAPER_ROOT=~/.wallpapers
 
@@ -54,7 +55,7 @@ for fName in "${bgnames[@]}"; do
     strrr+="$(echo -n "${fName}\0icon\x1f${cachedresult[$fName]}\n")"
 done
 
-selected=$(echo -en "${strrr}" | rofi -dmenu -no-layers -p "search" -config ~/.config/rofi/wallpaper-picker.rasi )
+selected=$(echo -en "${strrr}" | rofi -dmenu -no-layers -p " " -config ~/.config/rofi/wallpaper-picker.rasi )
 awww img "${bgresult[$selected]}" --transition-type center --transition-duration 0.5
 sleep 0.2
 wallust run -s "${bgresult[$selected]}"
