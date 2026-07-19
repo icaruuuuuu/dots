@@ -19,3 +19,24 @@
   :wm-ignore false
   (topbar_layout)) ;; 
 
+(defwindow slider_vol
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "30px"
+                      :width "300px"
+                      :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  ;; Chama o widget customizado que criamos acima
+  (widget_slider_vol))
+
+(defwindow slider_bri
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "30px"
+                      :width "300px"
+                      :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  ;; Chama o widget customizado que criamos acima
+  (widget_slider_bri))

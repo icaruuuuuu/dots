@@ -1,0 +1,33 @@
+.topbar-btn {
+    background-color: transparent;
+}
+
+.slider-popup {
+    background-color: $bg; 
+    border-radius: 16px;
+    padding: 12px 24px;
+}
+
+.slider-icon {
+    color: $color7;
+    font-size: 24px;
+}
+
+scale.osd-scale trough {
+    background-color: $fg;
+    border-radius: 10px;
+    min-height: 12px;
+}
+
+scale.osd-scale highlight {
+    background-color: $color9;
+    border-radius: 10px;
+}
+
+scale.osd-scale slider {
+    background-color: $color15;
+    min-width: 16px;
+    min-height: 16px;
+    border-radius: 100%;
+    margin: -2px 0px;
+}

@@ -1,0 +1,25 @@
+(defwidget widget_slider_vol []
+  (box :class "slider-popup"
+       :orientation "horizontal"
+       :space-evenly false
+       :spacing 16
+    (label :class "slider-icon" :text "")
+    (scale :class "osd-scale"
+           :hexpand true
+           :min 0
+           :max 101
+           :value {slider_data.volume}
+           :onchange "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ {}%")))
+
+(defwidget widget_slider_bri []
+  (box :class "slider-popup"
+       :orientation "horizontal"
+       :space-evenly false
+       :spacing 16
+    (label :class "slider-icon" :text "")
+    (scale :class "osd-scale"
+           :hexpand true
+           :min 0
+           :max 101
+           :value {slider_data.brightness}
+           :onchange "brightnessctl set {}%")))

@@ -8,3 +8,7 @@
 (defvar focused_window "No focused window")
 
 (deflisten active_workspace :initial "1" "scripts/get-workspace")
+
+(deflisten slider_data :initial '{"volume": 0, "brightness": 0}' "scripts/sliders")
+
+

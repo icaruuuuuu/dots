@@ -62,6 +62,7 @@ hl.config({
 hl.on("hyprland.start", function () 
     hl.exec_cmd("eww open topbar &")
     hl.exec_cmd("awww-daemon &")
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 
 ------------------

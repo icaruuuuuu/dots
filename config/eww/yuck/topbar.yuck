@@ -19,8 +19,8 @@
 
     ;; Pavucontrol 
     (button :class "icon-btn" :cursor "pointer"
-            :onclick "pavucontrol &"
-            "")
+            :onclick "scripts/open-widget slider_vol" 
+            " ${slider_data.volume}")
 
     ;; Tray
     (systray :class "tray" 
@@ -58,8 +58,8 @@
   (box :class "right-modules" :orientation "h" :space-evenly false :halign "end" :spacing 0
     ;; Brightness
     (button :class "icon-btn brightness" :cursor "pointer" 
-            :onclick "" 
-            "")
+            :onclick "scripts/open-widget slider_bri" 
+            "${slider_data.brightness} ")
     
     ;; Power
     (button :class "icon-btn powermenu-btn" :cursor "pointer"

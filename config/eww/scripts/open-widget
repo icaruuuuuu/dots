@@ -1,0 +1,11 @@
+#!/bin/bash
+EXCEPTION=$1
+WIDGETS="slider_vol slider_bri"
+for widget in $WIDGETS; do
+	if [ $widget != $EXCEPTION ]; then
+		eww close $widget
+	else
+		eww open $widget
+	fi
+done
+hyprctl dispatch 'hl.dsp.submap("eww")'
