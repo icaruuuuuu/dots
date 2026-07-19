@@ -6,7 +6,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(programs.terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(programs.terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.filemanager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(programs.launcher))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -52,9 +52,9 @@ hl.define_submap("eww", "reset", function()
     end)
 
     -- Note: using the "non_consuming" flag so the click still triggers UI elements
-    -- hl.bind("mouse:272", { flags = { non_consuming = true } }, function()
-    --     hl.dsp.exec_cmd("~/.config/eww/scripts/open-widget none")()
-    --     hl.dsp.submap("reset")()
-    -- end)
+    hl.bind("mouse:272", function()
+        hl.dispatch(hl.dsp.exec_cmd("~/.config/eww/scripts/open-widget none"))
+        hl.dispatch(hl.dsp.submap("reset"))
+    end, { flags = { non_consuming = true } })
 
 end)

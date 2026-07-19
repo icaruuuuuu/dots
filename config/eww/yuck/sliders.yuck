@@ -3,7 +3,8 @@
        :orientation "horizontal"
        :space-evenly false
        :spacing 16
-    (label :class "slider-icon" :text "")
+    (button :class "vol-btn" :onclick "scripts/open-widget none & pavucontrol &"
+        (label :class "slider-icon" :text ""))
     (scale :class "osd-scale"
            :hexpand true
            :min 0
@@ -16,7 +17,7 @@
        :orientation "horizontal"
        :space-evenly false
        :spacing 16
-    (label :class "slider-icon" :text "")
+    (label :class "slider-icon bri-icon" :text "")
     (scale :class "osd-scale"
            :hexpand true
            :min 0

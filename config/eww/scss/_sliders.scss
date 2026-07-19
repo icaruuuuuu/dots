@@ -31,3 +31,17 @@ scale.osd-scale slider {
     border-radius: 100%;
     margin: -2px 0px;
 }
+
+.vol-btn {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.bri-icon {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.vol-btn:hover {
+    background-color: $fg;
+}
