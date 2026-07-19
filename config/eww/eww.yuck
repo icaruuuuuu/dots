@@ -2,5 +2,3 @@
 (include "./yuck/windows.yuck")
 (include "./yuck/topbar.yuck")
 (include "./yuck/dashboard.yuck")
-(include "./yuck/lockscreen.yuck")
-(include "./yuck/wallpaperpicker.yuck")
