@@ -47,8 +47,8 @@ hl.define_submap("eww", "reset", function()
 
     -- When ESC is pressed: close widget and return to normal map
     hl.bind("escape", function()
-        hl.dispatch(hl.dsp.exec_cmd("~/.config/eww/scripts/open-widget none"))
         hl.dispatch(hl.dsp.submap("reset"))
+        hl.dispatch(hl.dsp.exec_cmd("~/.config/eww/scripts/open-widget none"))
     end)
 
     -- Note: using the "non_consuming" flag so the click still triggers UI elements

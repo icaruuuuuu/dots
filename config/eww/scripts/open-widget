@@ -8,4 +8,10 @@ for widget in $WIDGETS; do
 		eww open $widget
 	fi
 done
-hyprctl dispatch 'hl.dsp.submap("eww")'
+
+if [ $EXCEPTION == "none" ]; then
+	hyprctl dispatch 'hl.dsp.submap("reset")'
+else
+	hyprctl dispatch 'hl.dsp.submap("eww")'
+fi
+	
