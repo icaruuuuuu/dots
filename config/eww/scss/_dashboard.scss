@@ -1,0 +1,130 @@
+.dash-container {
+padding: 20px;
+}
+
+.module {
+background-color: $bg;
+border: 2px solid $color8;
+border-radius: 24px;
+padding: 24px;
+}
+
+.col1 { min-width: 340px; }
+.col2 { min-width: 280px; }
+.col3 { min-width: 260px; }
+
+/* Text Styles */
+.title {
+color: $fg;
+font-size: 26px;
+font-weight: 700;
+}
+
+.title-center {
+
+}
+
+.subtitle {
+color: $color7;
+font-size: 14px;
+font-weight: 400;
+}
+
+.subtitle-center {
+color: $color7;
+font-size: 16px;
+font-weight: 400;
+}
+
+.circ-prog {
+background-color: rgba(255, 255, 255, 0.05);
+min-width: 90px;
+min-height: 90px;
+}
+
+.circ-cpu { 
+color: $color15;
+min-width: 300px;
+min-height: 300px;
+}
+
+.circ-gpu { 
+color: $color14; 
+min-width: 300px;
+min-height: 300px;
+}
+
+.circ-mem {
+color: $color13;
+min-width: 160px;
+min-height: 160px;
+}
+.circ-storage {
+color: $color12;
+min-width: 120px;
+min-height: 120px;
+}
+
+.circ-label {
+color: $fg;
+font-size: 24px;
+font-weight: 700;
+}
+
+.circ-label-large {
+color: $fg;
+font-size: 36px;
+font-weight: 700;
+}
+
+.temp-label {
+color: $color7;
+font-size: 16px;
+font-weight: 500;
+margin-top: 5px;
+}
+
+.temp-bar {
+border-radius: 6px;
+min-height: 12px;
+}
+
+.temp-bar trough {
+background-color: transparent;
+border: 2px solid $color8;
+border-radius: 6px;
+min-height: 12px;
+}
+
+.temp-bar highlight {
+border-radius: 4px;
+margin: 2px;
+}
+
+.cpu-temp-bar highlight { background-color: $color3; }
+.gpu-temp-bar highlight { background-color: $color1; }
+
+.mem-details {
+margin-top: 10px;
+}
+
+.mem-text {
+color: $color7;
+font-size: 15px;
+font-weight: 500;
+}
+
+.uptime-module {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+.uptime-text {
+font-size: 18px;
+color: $fg;
+margin-top: 5px;
+}
+
+.storage-sub {
+margin-bottom: 15px;
+}

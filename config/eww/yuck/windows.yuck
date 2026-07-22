@@ -40,3 +40,8 @@
   :exclusive false
   ;; Chama o widget customizado que criamos acima
   (widget_slider_bri))
+
+(defwindow system_dashboard
+	:monitor 0
+	(dashboard_layout))
+

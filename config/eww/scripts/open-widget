@@ -1,6 +1,6 @@
 #!/bin/bash
 EXCEPTION=$1
-WIDGETS="slider_vol slider_bri"
+WIDGETS="slider_vol slider_bri system_dashboard"
 for widget in $WIDGETS; do
 	if [ $widget != $EXCEPTION ]; then
 		eww close $widget

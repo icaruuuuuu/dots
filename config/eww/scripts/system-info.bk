@@ -43,7 +43,7 @@ while true; do
 	# ==========================================
 
 	cat <<EOF
-{"cpu": { "usage": $CPU_USAGE, "temp": 43 },"gpu": { "usage": $GPU_USAGE, "temp": 39 },"ram": { "used_perc": $RAM_PERC, "used": "$RAM_USED", "avail": "$RAM_AVAIL", "free": "$RAM_FREE" },"disk": { "used_perc": $disk_perc, "used": "$disk_used", "total": "$disk_total" },"uptime": "$UPTIME"}
+{"cpu": { "usage": $CPU_USAGE, "temp": $CPU_TEMP },"gpu": { "usage": $GPU_USAGE, "temp": $GPU_TEMP },"ram": { "used_perc": $RAM_PERC, "used": "$RAM_USED", "avail": "$RAM_AVAIL", "free": "$RAM_FREE" },"disk": { "used_perc": $disk_perc, "used": "$disk_used", "total": "$disk_total" },"uptime": "$UPTIME"}
 EOF
 
 	# Aguarda 1 segundo. Como o vmstat já consome 1 segundo rodando, o script atualiza a cada ~2s no total.
