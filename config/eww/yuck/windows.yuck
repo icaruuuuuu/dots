@@ -42,6 +42,10 @@
   (widget_slider_bri))
 
 (defwindow system_dashboard
-	:monitor 0
-	(dashboard_layout))
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :x "0%" 
+		      :y "30px"
+		      :anchor "top center")
+  (dashboard_layout))
 

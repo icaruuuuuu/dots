@@ -7,21 +7,21 @@
 @define-color white #FFFFFF;
 @define-color hover-bg rgba(255, 255, 255, 0.1);
 
-@define-color color1 #49556C;
-@define-color color2 #4D5971;
-@define-color color3 #546477;
-@define-color color4 #5C7C8F;
-@define-color color5 #AAD4E4;
-@define-color color6 #A4D5E9;
-@define-color color7 #C8EDFD;
-@define-color color8 #799BA9;
-@define-color color9 #49556C;
-@define-color color10 #4D5971;
-@define-color color11 #546477;
-@define-color color12 #5C7C8F;
-@define-color color13 #AAD4E4;
-@define-color color14 #A4D5E9;
-@define-color color15 #DBEEF5;
+@define-color color1 #564C53;
+@define-color color2 #4F5D5A;
+@define-color color3 #777365;
+@define-color color4 #728376;
+@define-color color5 #8C8F7B;
+@define-color color6 #9AA583;
+@define-color color7 #C6CCB7;
+@define-color color8 #828775;
+@define-color color9 #564C53;
+@define-color color10 #4F5D5A;
+@define-color color11 #777365;
+@define-color color12 #728376;
+@define-color color13 #8C8F7B;
+@define-color color14 #9AA583;
+@define-color color15 #DADDD3;
 /* =========================================================
    GENERAL
 ========================================================= */

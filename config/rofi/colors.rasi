@@ -4,20 +4,20 @@
 	fg: #161614; 
 	white: #ffffff;
 
-	color0: #01070A;
-	color1: #49556C;
-	color2: #4D5971;
-	color3: #546477;
-	color4: #5C7C8F;
-	color5: #AAD4E4;
-	color6: #A4D5E9;
-	color7: #C8EDFD;
-	color8: #799BA9;
-	color9: #49556C;
-	color10: #4D5971;
-	color11: #546477;
-	color12: #5C7C8F;
-	color13: #AAD4E4;
-	color14: #A4D5E9;
-	color15: #DBEEF5;
+	color0: #050702;
+	color1: #564C53;
+	color2: #4F5D5A;
+	color3: #777365;
+	color4: #728376;
+	color5: #8C8F7B;
+	color6: #9AA583;
+	color7: #C6CCB7;
+	color8: #828775;
+	color9: #564C53;
+	color10: #4F5D5A;
+	color11: #777365;
+	color12: #728376;
+	color13: #8C8F7B;
+	color14: #9AA583;
+	color15: #DADDD3;
 }

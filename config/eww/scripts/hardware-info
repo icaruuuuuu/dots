@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ $1 == "cpu" ]; then
+	echo $(awk -F: '/model name/ {print $2; exit}' /proc/cpuinfo | xargs)
+elif [ $1 == "gpu" ]; then
+	echo $(glxinfo | grep 'OpenGL renderer string' | cut -d ':' -f2 | cut -d '(' -f1)
+fi
+

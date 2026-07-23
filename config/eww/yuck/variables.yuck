@@ -13,3 +13,6 @@
 
 (deflisten sys_metrics :initial '{"cpu": {"usage": 0, "temp": 0}, "gpu": {"usage": 0, "temp": 0}, "ram": {"used_perc": 0, "used": "0.0", "avail": "0.0", "free": "0.0"}, "disk": {"used_perc": 0, "used": "0", "total": "0"}, "uptime": "Carregando..."}' "scripts/system-info 2> /dev/null")
 
+(defpoll sys_cpu :interval "24h" :initial "uninitialized" "scripts/hardware-info cpu")
+
+(defpoll sys_gpu :interval "24h" :initial "uninitialized" "scripts/hardware-info gpu")

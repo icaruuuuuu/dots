@@ -1,7 +1,7 @@
 (defwidget dashboard_layout []
-(box :class "dash-container" :orientation "h" :space-evenly false :spacing 25
+(box :class "dash-container" :orientation "h" :space-evenly false :spacing 5
 ;; Col 1: CPU & GPU
-(box :orientation "v" :space-evenly true :spacing 25 :class "col1"
+(box :orientation "v" :space-evenly true :spacing 5 :class "col1"
 (cpu_module)
 (gpu_module))
 
@@ -10,60 +10,84 @@
 (memory_module))
 
 ;; Col 3: Uptime & Storage
-(box :orientation "v" :space-evenly false :spacing 25 :class "col3"
+(box :orientation "v" :space-evenly false :spacing 5 :class "col3"
 (uptime_module)
 (storage_module))))
 
 
 (defwidget cpu_module []
-(box :class "module cpu-module" :orientation "v" :space-evenly false :spacing 15
-(box :orientation "h" :space-evenly false :spacing 20 :valign "center"
-(circular-progress :value {sys_metrics.cpu.usage} :class "circ-prog circ-cpu" :thickness 3
-(label :text "${sys_metrics.cpu.usage}%" :class "circ-label"))
-(box :orientation "v" :space-evenly false :valign "center" :halign "start"
-(label :text "CPU" :class "title" :halign "start")
-(label :text "AMD Ryzen 5 5600GT" :class "subtitle" :halign "start" :limit-width 20)))
-(box :orientation "v" :space-evenly false :spacing 5
-(label :text "${sys_metrics.cpu.temp}°C" :class "temp-label" :halign "start")
-(progress :value {sys_metrics.cpu.temp} :class "temp-bar cpu-temp-bar"))))
+	(box :class "module cpu-module" :orientation "v" :space-evenly false :spacing 10
+		(box :orientation "h" :space-evenly false :spacing 20 :valign "center" :class "cpu-circ-box"
+			(circular-progress :value {sys_metrics.cpu.usage} :class "circ-prog circ-cpu" :thickness 8 :valign "center"
+					(box :orientation "v" :space-evenly false :valign "center" :class "circ-label"
+						(label :text "" :class "circ-label-top")
+						(label :text "${sys_metrics.cpu.usage}%" :class "circ-label-mid")
+						(label :text "Used" :class "circ-label-bottom")))
+			(box :orientation "v" :space-evenly false :valign "center" :halign "start"
+				(box :orientation "h" :halign "start" :valign "center" :space-evenly false
+				(label :text " " :class "title title-sym")
+				(label :text "CPU" :class "title" :halign "start"))
+				(label :text "${sys_cpu}" :class "subtitle" :halign "start" :limit-width 20)))
+	(box :orientation "v" :space-evenly false :spacing 5 :class "cpu-temp-box"
+		(box :orientation "h" :halign "start" :valign "center" :space-evenly false
+		(label :text " " :class "title title-sym")
+		(label :text "Temperature" :class "title" :halign "start"))
+		(label :text "${sys_metrics.cpu.temp}°C" :class "temp-label" :halign "start")
+		(progress :value {sys_metrics.cpu.temp} :class "temp-bar cpu-temp-bar"))))
 
 (defwidget gpu_module []
-(box :class "module gpu-module" :orientation "v" :space-evenly false :spacing 15
-(box :orientation "h" :space-evenly false :spacing 20 :valign "center"
-(circular-progress :value {sys_metrics.gpu.usage} :class "circ-prog circ-gpu" :thickness 3
-(label :text "${sys_metrics.gpu.usage}%" :class "circ-label"))
-(box :orientation "v" :space-evenly false :valign "center" :halign "start"
-(label :text "GPU" :class "title" :halign "start")
-(label :text "AMD Radeon RX 7600" :class "subtitle" :halign "start" :limit-width 20)))
-(box :orientation "v" :space-evenly false :spacing 5
-(label :text "${sys_metrics.gpu.temp}°C" :class "temp-label" :halign "start")
-(progress :value {sys_metrics.gpu.temp} :class "temp-bar gpu-temp-bar"))))
+	(box :class "module gpu-module" :orientation "v" :space-evenly false :spacing 10
+		(box :orientation "h" :space-evenly false :spacing 20 :valign "center" :class "gpu-circ-box"
+			(circular-progress :value {sys_metrics.gpu.usage} :class "circ-prog circ-gpu" :thickness 8 :valign "center"
+				(box :orientation "v" :space-evenly false :valign "center" :class "circ-label"
+					(label :text "" :class "circ-label-top")
+					(label :text "${sys_metrics.gpu.usage}%" :class "circ-label-mid")
+					(label :text "Used" :class "circ-label-bottom")))
+			(box :orientation "v" :space-evenly false :valign "center" :halign "start"
+				(box :orientation "h" :halign "center" :valign "center" :space-evenly false
+				(label :text " " :class "title title-sym")
+				(label :text "GPU" :class "title" :halign "start"))
+				(label :text "${sys_gpu}" :class "subtitle" :halign "start" :limit-width 20)))
+		(box :orientation "v" :space-evenly false :spacing 5 :class "gpu-temp-box"
+			(box :orientation "h" :halign "start" :valign "center" :space-evenly false
+			(label :text " " :class "title title-sym")
+			(label :text "Temperature" :class "title" :halign "start"))
+			(label :text "${sys_metrics.gpu.temp}°C" :class "temp-label" :halign "start")
+			(progress :value {sys_metrics.gpu.temp} :class "temp-bar gpu-temp-bar"))))
 
 (defwidget memory_module []
-(box :class "module mem-module" :orientation "v" :space-evenly false :spacing 25 :vexpand true
-(label :text "Memory" :class "title title-center")
-(box :halign "center" :valign "center"
-(circular-progress :value {sys_metrics.ram.used_perc} :class "circ-prog circ-mem" :thickness 6
-(box :orientation "v" :space-evenly false :valign "center"
-(label :text "${sys_metrics.ram.used_perc}%" :class "circ-label-large")
-(label :text "Used" :class "subtitle-center"))))
-(box :orientation "v" :space-evenly false :spacing 10 :halign "start" :class "mem-details"
-(label :text "Used: ${sys_metrics.ram.used} GiB" :halign "start" :class "mem-text")
-(label :text "Available: ${sys_metrics.ram.avail} GiB" :halign "start" :class "mem-text")
-(label :text "Free: ${sys_metrics.ram.free} GiB" :halign "start" :class "mem-text"))))
+	(box :class "module mem-module" :orientation "v" :space-evenly false :spacing 15 :vexpand false
+		(box :orientation "h" :halign "center" :valign "center" :space-evenly false :class "title-center"
+		(label :text " " :class "title title-sym")
+		(label :text "Memory" :class "title"))
+		(box :halign "center" :valign "center" :class "mem-circ-box" :orientation "v"
+			(circular-progress :value {sys_metrics.ram.used_perc} :class "circ-prog circ-mem" :thickness 24 :valign "center"
+				(box :orientation "v" :space-evenly false :valign "center" :class "circ-label-large"
+					(label :text "" :class "circ-label-top-mem")
+					(label :text "${sys_metrics.ram.used_perc}%" :class "circ-label-mid-mem")
+					(label :text "Used" :class "subtitle-center" :class "circ-label-bottom-mem"))))
+		(box :orientation "v" :space-evenly false :spacing 10 :halign "start" :class "mem-details"
+			(label :text "Used: ${sys_metrics.ram.used} GiB" :halign "start" :class "mem-text")
+			(label :text "Available: ${sys_metrics.ram.avail} GiB" :halign "start" :class "mem-text")
+			(label :text "Free: ${sys_metrics.ram.free} GiB" :halign "start" :class "mem-text"))))
 
 (defwidget uptime_module []
-(box :class "module uptime-module" :orientation "v" :space-evenly false :spacing 10
-(label :text "Uptime:" :class "title title-center")
-(label :text {sys_metrics.uptime} :class "subtitle-center uptime-text" :wrap true)))
+	(box :class "module uptime-module" :orientation "v" :space-evenly false :spacing 10
+		(box :orientation "h" :halign "center" :valign "center" :space-evenly false :class "title-center"
+		(label :text " " :class "title title-sym")
+		(label :text "Uptime:" :class "title"))
+		(label :text {sys_metrics.uptime} :class "subtitle-center uptime-text" :wrap true)))
 
 (defwidget storage_module []
-(box :class "module storage-module" :orientation "v" :space-evenly false :spacing 25 :vexpand true
-(box :orientation "v" :space-evenly false :spacing 5
-(label :text "Storage" :class "title title-center")
-(label :text "${sys_metrics.disk.used}/${sys_metrics.disk.total} GiB" :class "subtitle-center storage-sub"))
-(box :halign "center" :valign "center"
-(circular-progress :value {sys_metrics.disk.used_perc} :class "circ-prog circ-storage" :thickness 5
-(box :orientation "v" :space-evenly false :valign "center"
-(label :text "${sys_metrics.disk.used_perc}%" :class "circ-label")
-(label :text "Used" :class "subtitle-center"))))))
+	(box :class "module storage-module" :orientation "v" :space-evenly false :spacing 15 :vexpand true
+		(box :orientation "v" :space-evenly false :spacing 5
+			(box :orientation "h" :halign "center" :valign "center" :space-evenly false :class "title-center"
+			(label :text " " :class "title title-sym")
+			(label :text "Storage" :class "title"))
+			(label :text "${sys_metrics.disk.used}/${sys_metrics.disk.total} GiB" :class "subtitle-center storage-sub"))
+		(box :halign "center" :valign "center" :class "sto-circ-box"
+			(circular-progress :value {sys_metrics.disk.used_perc} :class "circ-prog circ-storage" :thickness 13 :valign "center" 
+				(box :orientation "v" :space-evenly false :valign "center" :class "circ-label circ-label-storage"
+					(label :text "" :class "circ-label-top-sto")
+					(label :text "${sys_metrics.disk.used_perc}%" :class "circ-label-mid-sto")
+					(label :text "Used" :class "subtitle-center" :class "circ-label-bottom-sto"))))))
