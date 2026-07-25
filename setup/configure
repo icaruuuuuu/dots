@@ -7,7 +7,7 @@ copy-config() {
 	mkdir -p "~/.local/bin"
 	mkdir -p "~/.local/share/applications"
 
-	cp "$config_dir" "~/.config"
+	cp -r "$config_dir" "~/.config"
 
 	for app in $(ls $apps_dir); do
 		bin=$(ls "$apps_dir/$app" | grep ".sh")
