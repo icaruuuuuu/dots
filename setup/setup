@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# I'm weird.
+git_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
+sources="$git_dir/setup"
+for s in $(ls $sources); do
+	[ $s != "setup" ] && [ $s != "dots.deps" ] && source "$sources/$s"
+done
+
+read -p "Install dependencies? (Y/n): "
+[ $REPLY != 'n' ] && install-dependencies $git_dir
+
+read -p "Copy configuration files? (Y/n): "
+[ $REPLY != 'n' ] && copy-config $git_dir
+
+read -p "Install ble.sh? (Y/n): "
+[ $REPLY != 'n' ] && install-ble

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+install-dependencies() {
+	deps_file=$1
+
+	for pkg in $(ls $deps); do
+	    if ! pacman -Q "$pkg" &>/dev/null; then
+		echo "Installing: $pkg"
+		yay -S --needed --noconfirm "$pkg"
+	    else
+		echo "Already installed: $pkg"
+	    fi
+	done
+}

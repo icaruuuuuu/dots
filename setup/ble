@@ -1,0 +1,10 @@
+#!/bin/bash
+
+install-ble() {
+	curl -LO https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz
+	tar xJf ble-nightly.tar.xz
+	bash ble-nightly/ble.sh --install ~/.local/share
+	[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+	[[ ! ${BLE_VERSION-} ]] || ble-attach
+	rm -r ble-nightly ble-nightly.tar.xz
+}

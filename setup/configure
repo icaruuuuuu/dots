@@ -1,0 +1,20 @@
+#!/bin/bash
+
+copy-config() {
+	config_dir="$1/config"
+	apps_dir="$1/applications"
+
+	mkdir -p "~/.local/bin"
+	mkdir -p "~/.local/share/applications"
+
+	cp "$config_dir" "~/.config"
+
+	for app in $(ls $apps_dir); do
+		bin=$(ls "$apps_dir/$app" | grep ".sh")
+		cp "$apps_dir/$app/$bin" "~/.local/bin/$($bin | cut -d '.' -f1)"
+
+		desk=$(ls "$apps_dir/$app" | grep ".desktop")	
+		cp "$apps_dir/$app/$desk" "~/.local/share/applications/$desk"
+
+	done
+}
