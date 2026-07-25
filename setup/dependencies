@@ -2,6 +2,7 @@
 
 install-dependencies() {
 	deps_file="$1/setup/dots.deps"
+	echo $deps_file
 
 	for pkg in $(cat $deps_file); do
 	    if ! pacman -Q "$pkg" &>/dev/null; then

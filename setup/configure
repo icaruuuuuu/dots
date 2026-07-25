@@ -3,18 +3,21 @@
 copy-config() {
 	config_dir="$1/config"
 	apps_dir="$1/applications"
+	echo $config_dir
+	echo $HOME/.config
 
-	mkdir -p "~/.local/bin"
-	mkdir -p "~/.local/share/applications"
+	mkdir -p "$HOME/.local/bin"
+	mkdir -p "$HOME/.local/share/applications"
 
-	cp -r "$config_dir" "~/.config"
+	cp -r "$config_dir/." "$HOME/.config"
 
 	for app in $(ls $apps_dir); do
 		bin=$(ls "$apps_dir/$app" | grep ".sh")
-		cp "$apps_dir/$app/$bin" "~/.local/bin/$($bin | cut -d '.' -f1)"
+		echo $apps_dir/$app/$bin
+		cp "$apps_dir/$app/$bin" "$HOME/.local/bin/$(echo $bin | cut -d '.' -f1)"
 
 		desk=$(ls "$apps_dir/$app" | grep ".desktop")	
-		cp "$apps_dir/$app/$desk" "~/.local/share/applications/$desk"
+		cp "$apps_dir/$app/$desk" "$HOME/.local/share/applications/$desk"
 
 	done
 }
