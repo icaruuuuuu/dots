@@ -1,9 +1,9 @@
 #!/bin/bash
 
 install-dependencies() {
-	deps_file="$1/dots.deps"
+	deps_file="$1/setup/dots.deps"
 
-	for pkg in $(ls $deps); do
+	for pkg in $(cat $deps_file); do
 	    if ! pacman -Q "$pkg" &>/dev/null; then
 		echo "Installing: $pkg"
 		yay -S --needed --noconfirm "$pkg"
