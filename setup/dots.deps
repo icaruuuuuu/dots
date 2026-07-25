@@ -18,7 +18,13 @@ nwg-look
 qt5ct
 qt6ct
 libadwaita
+gnome-themes-extra
+adwaita-icon-theme
+adw-gtk3
+adwaita-qt5
+adwaita-qt6
 jq
 glxinfo
 btop
 fastfetch
+ttf-jetbrains-mono-nerd
