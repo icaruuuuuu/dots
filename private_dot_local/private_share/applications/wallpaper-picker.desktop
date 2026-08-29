@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Wallpaper Picker
+Comment=Select your Wallpaper
+Exec=bash -c '~/.local/bin/wallpaper-picker'
+Icon=preferences-desktop-wallpaper
+Type=Application
+Categories=Utility
+Terminal=false
