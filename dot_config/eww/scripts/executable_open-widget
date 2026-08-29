@@ -1,0 +1,17 @@
+#!/bin/bash
+EXCEPTION=$1
+WIDGETS="slider_vol slider_bri system_dashboard close_overlay"
+for widget in $WIDGETS; do
+	if [ $widget != $EXCEPTION ]; then
+		eww close $widget
+	else
+		eww open-many $widget close_overlay
+	fi
+done
+
+if [ $EXCEPTION == "none" ]; then
+	hyprctl dispatch 'hl.dsp.submap("reset")'
+else
+	hyprctl dispatch 'hl.dsp.submap("eww")'
+fi
+	

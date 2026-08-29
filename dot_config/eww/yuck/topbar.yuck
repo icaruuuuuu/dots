@@ -1,0 +1,68 @@
+;; =========================================================
+;; MAIN BAR LAYOUT
+;; =========================================================
+(defwidget topbar_layout []
+  (centerbox :class "topbar-container" :orientation "h"
+    (left_modules)
+    (center_modules)
+    (right_modules)))
+
+;; =========================================================
+;; LEFT MODULES (Power, Volume, Brightness, Bluetooth)
+;; =========================================================
+(defwidget left_modules []
+  (box :class "left-modules" :orientation "h" :space-evenly false :halign "start" :spacing 0
+    ;; Hour
+    (label :class "clock" 
+           :text time)
+
+
+    ;; Pavucontrol 
+    (button :class "icon-btn" :cursor "pointer"
+            :onclick "scripts/open-widget slider_vol" 
+            " ${slider_data.volume}")
+
+    ;; Tray
+    (systray :class "tray" 
+             :spacing 5 
+             :orientation "h" 
+             :icon-size 16)
+))
+
+;; =========================================================
+;; CENTER MODULES
+;; =========================================================
+(defwidget center_modules []
+  (box :class "center-modules" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 4
+    
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'" 
+      (box :class {active_workspace == 1 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })'"  
+      (box :class {active_workspace == 2 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })'" 
+      (box :class {active_workspace == 3 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })'" 
+      (box :class {active_workspace == 4 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
+      (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center"))
+))
+
+;; =========================================================
+;; RIGHT MODULES (System Tray and Clock)
+;; =========================================================
+(defwidget right_modules []
+  (box :class "right-modules" :orientation "h" :space-evenly false :halign "end" :spacing 0
+    ;; Brightness
+    (button :class "icon-btn brightness" :cursor "pointer" 
+            :onclick "scripts/open-widget slider_bri" 
+            "${slider_data.brightness} ")
+    
+    ;; Power
+    (button :class "icon-btn powermenu-btn" :cursor "pointer"
+            :onclick "swaync-client -t" 
+            "")
+))

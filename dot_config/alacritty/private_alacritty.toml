@@ -1,0 +1,8 @@
+[general]
+import = [
+	"~/.config/alacritty/colors.toml"
+]
+
+[window.padding]
+x = 10
+y = 10

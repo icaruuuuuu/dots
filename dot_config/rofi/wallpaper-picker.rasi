@@ -1,0 +1,67 @@
+@theme "colors"
+
+configuration{
+    show-icons: true;
+    location: 6;
+    sidebar-mode: false;
+    prompt: "search: ";
+    alternate-row-color: false;
+    fixed-height: false;
+}
+
+* {
+    font: "JetBrainsMono Nerd Font 12";
+    background-color: transparent;
+    text-color: @white;
+}
+
+window {
+    width: 99%;
+    height: 40%;
+    background-color: @bg; 
+    border-radius: 15px; 
+    padding: 20px;
+    border: 0px;
+}
+
+listview {
+    spacing: 20px;
+    scrollbar: false;  
+    layout: horizontal;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+    padding: 10px;
+    border-radius: 10px; 
+    background-color: transparent;
+}
+
+element.selected {
+    background-color: @color4;
+}
+
+element-icon {
+    size: 120px;
+    border-radius: 8px;
+    padding: 0px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    margin: 10px 0px 0px 0px;
+}
+
+inputbar {
+    font: "JetBrainsMono Nerd Font 14";
+    background-color: @fg;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0px 0px 12px 0px;
+}
+
+prompt {
+    text-color: @color15;
+}

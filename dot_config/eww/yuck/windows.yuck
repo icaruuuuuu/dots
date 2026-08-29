@@ -1,0 +1,57 @@
+;; ~/.config/eww/yuck/windows.yuck
+
+(defwindow close_overlay
+  :monitor 0
+  :geometry (geometry :width "100%"
+		      :height "100%")
+  :stacking "fg"
+  :focusable false
+  (eventbox :onclick "scripts/open-widget none"
+	(box :class "overlay")))
+
+(defwindow topbar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0px"
+                      :width "70%"
+                      :height "22px"
+                      :anchor "top center")
+  :stacking "fg"
+  :reserve (struts :side "top" :distance "80px")
+  :focusable false
+  :exclusive true
+  :layer "top"
+  :windowtype "dock"
+  :wm-ignore false
+  (topbar_layout)) ;; 
+
+(defwindow slider_vol
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "30px"
+                      :width "300px"
+                      :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  ;; Chama o widget customizado que criamos acima
+  (widget_slider_vol))
+
+(defwindow slider_bri
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "30px"
+                      :width "300px"
+                      :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  ;; Chama o widget customizado que criamos acima
+  (widget_slider_bri))
+
+(defwindow system_dashboard
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :x "0%" 
+		      :y "30px"
+		      :anchor "top center")
+  (dashboard_layout))
+
