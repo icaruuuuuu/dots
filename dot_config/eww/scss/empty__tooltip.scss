@@ -1,0 +1,43 @@
+menu {
+    padding: 4px;
+    background-color: $bg;
+    color: $white;
+    border-radius: 5px;
+
+    menuitem {
+        border-radius: 5px;
+        padding: 4px;
+        background-color: transparent;
+        transition: all 0.2s ease;
+
+        &:backdrop {
+            background-color: $bg;
+        }
+    }
+
+    menuitem arrow {
+        min-width: 16px;
+        min-height: 16px;
+
+        &:dir(ltr) {
+            -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+            margin-left: 10px;
+            margin-right: 0;
+        }
+    }
+
+    menuitem:hover {
+        background-color: $fg;
+    }
+
+    menuitem:disabled label {
+        color: #555;
+    }
+
+    separator {
+        background-color: $color15;
+        min-height: 1px;
+        margin: 5px 0px;
+        border-radius: 5px;
+    }
+}
