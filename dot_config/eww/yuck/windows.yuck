@@ -6,8 +6,9 @@
 		      :height "100%")
   :stacking "fg"
   :focusable false
-  (eventbox :onclick "scripts/open-widget none"
-	(box :class "overlay")))
+  (box
+     (eventbox :onclick "scripts/open-widget none"
+	(box :class "overlay"))))
 
 (defwindow topbar
   :monitor 0
@@ -23,7 +24,7 @@
   :layer "top"
   :windowtype "dock"
   :wm-ignore false
-  (topbar_layout)) ;; 
+  (topbar_layout)) 
 
 (defwindow slider_vol
   :monitor 0
@@ -31,9 +32,7 @@
                       :y "30px"
                       :width "300px"
                       :anchor "top center")
-  :stacking "overlay"
-  :exclusive false
-  ;; Chama o widget customizado que criamos acima
+  :stacking "fg"
   (widget_slider_vol))
 
 (defwindow slider_bri
@@ -42,9 +41,7 @@
                       :y "30px"
                       :width "300px"
                       :anchor "top center")
-  :stacking "overlay"
-  :exclusive false
-  ;; Chama o widget customizado que criamos acima
+  :stacking "fg"
   (widget_slider_bri))
 
 (defwindow system_dashboard
