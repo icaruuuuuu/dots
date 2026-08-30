@@ -15,7 +15,7 @@
   :geometry (geometry :x "0%"
                       :y "0px"
                       :width "70%"
-                      :height "22px"
+                      :height "24px"
                       :anchor "top center")
   :stacking "fg"
   :reserve (struts :side "top" :distance "80px")

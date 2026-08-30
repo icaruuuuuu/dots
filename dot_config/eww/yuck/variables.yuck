@@ -1,18 +1,29 @@
 ;; ~/.config/eww/yuck/variables.yuck
 
+;; Date
 (defpoll date :interval "1s" "echo ' ' $(date '+%a, %d. %b %I:%M %p')")
 
+;; Window Focus
 (defvar focused_window "No focused window")
 
+;; Workspaces
 (deflisten active_workspace :initial "1" "scripts/get-workspace")
 
+;; Sliders
 (deflisten slider_data :initial '{"volume": 0, "brightness": 0}' "scripts/sliders")
 
+;; Hardware data
 (deflisten sys_metrics :initial '{"cpu": {"usage": 0, "temp": 0}, "gpu": {"usage": 0, "temp": 0}, "ram": {"used_perc": 0, "used": "0.0", "avail": "0.0", "free": "0.0"}, "disk": {"used_perc": 0, "used": "0", "total": "0"}, "uptime": "Carregando..."}' "scripts/system-info 2> /dev/null")
 
 (defpoll sys_cpu :interval "24h" :initial "uninitialized" "scripts/hardware-info cpu")
 
 (defpoll sys_gpu :interval "24h" :initial "uninitialized" "scripts/hardware-info gpu")
 
+;; Expanders
 (defvar rev_bri false)
 (defvar rev_vol false)
+
+;; Listeners for playerctl data
+(deflisten player_status :initial "No player found" `playerctl --follow status 2>/dev/null`)
+(deflisten player_artist :initial "" `playerctl --follow metadata --format '{{ artist }}' 2>/dev/null`)
+(deflisten player_title  :initial "" `playerctl --follow metadata --format '{{ title }}' 2>/dev/null`)

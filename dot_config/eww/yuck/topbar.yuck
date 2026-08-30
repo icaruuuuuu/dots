@@ -29,11 +29,15 @@
     (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
       (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center")))
 
-    ;; Tray
-    (systray :class "tray" 
-             :spacing 5 
-             :orientation "h" 
-             :icon-size 16)
+    ;; Playerctl
+    (box
+    (box :class "player" :orientation "h" :space-evenly false :halign "start" :spacing 4 :vexpand false
+	(revealer :transition "slideleft" :reveal {player_artist != ""} :duration "200ms"
+	    (label :class "player-artist" :text "${player_artist}"))
+	(label :class "player-sym" :text "")
+	(revealer :transition "slideright" :reveal {player_title != ""} :duration "200ms"
+	    (label :class "player-title" :text "${player_title}"))
+    ))
 
     ;; Date
     ;; (label :class "date"
@@ -59,12 +63,18 @@
 ;; =========================================================
 (defwidget right_modules []
   (box :class "right-modules" :orientation "h" :space-evenly false :halign "end" :spacing 0
+    ;; Tray
+    (systray :class "tray" 
+             :spacing 5 
+             :orientation "h" 
+             :icon-size 12)
+
     ;; Pavucontrol 
     (eventbox :onhover "eww update rev_vol=true"
 	      :onhoverlost "eww update rev_vol=false"
         (button :class "icon-btn brightness" :cursor "pointer" 
             :onclick "scripts/open-widget slider_vol"
-	    (box :orientation "h" :space-evenly false
+	    (box :orientation "h" :space-evenly false :valign "center"
 	        (revealer :transition "slideleft"
 			  :reveal rev_vol
 			  :duration "200ms"
@@ -76,7 +86,7 @@
 	      :onhoverlost "eww update rev_bri=false"
         (button :class "icon-btn brightness" :cursor "pointer" 
             :onclick "scripts/open-widget slider_bri"
-	    (box :orientation "h" :space-evenly false
+	    (box :orientation "h" :space-evenly false :valign "center"
 	        (revealer :transition "slideleft"
 			  :reveal rev_bri
 			  :duration "200ms"
