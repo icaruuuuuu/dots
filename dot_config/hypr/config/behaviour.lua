@@ -45,6 +45,18 @@ hl.window_rule({
     move = {"(monitor_w / 6.66)",30}, 
 })
 
+hl.layer_rule({
+    name = "eww",
+    match = { namespace = "gtk-layer-shell" },
+    animation = "popin 80%",
+})
+
+hl.layer_rule({
+    name = "swaync",
+    match = { namespace = "swaync-control-center" },
+    animation = "popin 80%",
+})
+
 hl.config({
     misc = {
         force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
