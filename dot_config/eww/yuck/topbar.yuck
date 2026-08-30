@@ -4,24 +4,40 @@
 (defwidget topbar_layout []
   (centerbox :class "topbar-container" :orientation "h"
     (left_modules)
-    (box :space-evenly false :halign "center" :spacing 4
-	(center_left_modules) 
-	(center_modules) 
-	(center_right_modules))
+    (center_modules)
     (right_modules)))
 
 ;; =========================================================
 ;; LEFT MODULES (Power, Volume, Brightness, Bluetooth)
 ;; =========================================================
 (defwidget left_modules []
-  (box :class "left-modules" :orientation "h" :space-evenly false :halign "start" :spacing 0
-    ;; Hour
-    (label :class "clock" 
-           :text time)
+  (box :class "left-modules" :orientation "h" :space-evenly false :halign "start" :spacing 4
+    ;; Workspaces
+    (box :class "workspaces" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 4 
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'" 
+      (box :class {active_workspace == 1 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })'"  
+      (box :class {active_workspace == 2 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })'" 
+      (box :class {active_workspace == 3 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })'" 
+      (box :class {active_workspace == 4 ? "workspace active" : "workspace"} :valign "center"))
+      
+    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
+      (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center")))
+
+    ;; Tray
+    (systray :class "tray" 
+             :spacing 5 
+             :orientation "h" 
+             :icon-size 16)
 
     ;; Date
-    (label :class "date"
-	   :text date)
+    ;; (label :class "date"
+    ;;     :text date)
 
 
 ))
@@ -29,8 +45,20 @@
 ;; =========================================================
 ;; CENTER MODULES
 ;; =========================================================
-(defwidget center_left_modules []
-  (box :class "center-left-modules" :orientation "h" :space-evenly false :halign "right" :valign "center" :spacing 0
+(defwidget center_modules []
+  (box :class "center-modules" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 0
+
+    ;; Hour
+    (label :class "clock" 
+           :text date)
+
+))
+
+;; =========================================================
+;; RIGHT MODULES (System Tray and Clock)
+;; =========================================================
+(defwidget right_modules []
+  (box :class "right-modules" :orientation "h" :space-evenly false :halign "end" :spacing 0
     ;; Pavucontrol 
     (eventbox :onhover "eww update rev_vol=true"
 	      :onhoverlost "eww update rev_vol=false"
@@ -55,54 +83,13 @@
 		    (label :text "${slider_data.brightness} "))
 		(label :text ""))))
 
-))
-
-(defwidget center_modules []
-  (box :class "center-modules" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 0
-
-    ;; Workspaces
-    (box :class "workspaces" :orientation "h" :space-evenly false :halign "center" :valign "center" :spacing 4 
-    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'" 
-      (box :class {active_workspace == 1 ? "workspace active" : "workspace"} :valign "center"))
-      
-    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })'"  
-      (box :class {active_workspace == 2 ? "workspace active" : "workspace"} :valign "center"))
-      
-    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })'" 
-      (box :class {active_workspace == 3 ? "workspace active" : "workspace"} :valign "center"))
-      
-    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })'" 
-      (box :class {active_workspace == 4 ? "workspace active" : "workspace"} :valign "center"))
-      
-    (eventbox :onclick "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
-      (box :class {active_workspace == 5 ? "workspace active" : "workspace"} :valign "center")))
-
-))
-
-(defwidget center_right_modules []
-  (box :class "center-right-modules" :orientation "h" :space-evenly false :halign "left" :valign "center" :spacing 0
-    ;; Power
-    (button :class "icon-btn powermenu-btn" :cursor "pointer"
-            :onclick "swaync-client -t" 
-            "")
-
     ;; Dashboard
     (button :class "icon-btn" :cursor "pointer"
 	    :onclick "scripts/open-widget system_dashboard"
 	    "")
-
-))
-
-;; =========================================================
-;; RIGHT MODULES (System Tray and Clock)
-;; =========================================================
-(defwidget right_modules []
-  (box :class "right-modules" :orientation "h" :space-evenly false :halign "end" :spacing 0
-    ;; Tray
-    (systray :class "tray" 
-             :spacing 5 
-             :orientation "h" 
-             :icon-size 16)
-
     
+    ;; Power
+    (button :class "icon-btn powermenu-btn" :cursor "pointer"
+            :onclick "swaync-client -t" 
+            "")
 ))

@@ -1,7 +1,6 @@
 ;; ~/.config/eww/yuck/variables.yuck
 
-(defpoll time :interval "1s" "echo ' ' $(date '+%H : %M')")
-(defpoll date :interval "1s" "date '+%a, %d. %b'")
+(defpoll date :interval "1s" "echo ' ' $(date '+%a, %d. %b %I:%M %p')")
 
 (defvar focused_window "No focused window")
 

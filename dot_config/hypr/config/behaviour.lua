@@ -57,6 +57,12 @@ hl.layer_rule({
     animation = "popin 80%",
 })
 
+hl.layer_rule({
+    name = "rofi",
+    match = { namespace = "rofi" },
+    animation = "popin 80%",
+})
+
 hl.config({
     misc = {
         force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
