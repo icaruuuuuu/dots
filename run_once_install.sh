@@ -9,9 +9,8 @@ install-ble() {
 }
 
 install-gtk-theme() {
-    git clone https://github.com/vinceliuice/Graphite-gtk-theme gtk-theme && cd gtk-theme
-    ./install.sh -d ~/.local/share/themes -t default -c dark -s compact -l --tweaks darker
-    cd .. && rm -r gtk-theme
+    git clone https://github.com/vinceliuice/Graphite-gtk-theme gtk-theme 
+    (cd gtk-theme && ./install.sh -d ~/.local/share/themes -t default -c dark -s compact -l --tweaks darker && cd .. && rm -r gtk-theme)
 }
 
 install-dependencies() {
@@ -26,8 +25,6 @@ install-dependencies() {
 	    fi
 	done
 }
-
-set -e
 
 install-ble
 install-gtk-theme

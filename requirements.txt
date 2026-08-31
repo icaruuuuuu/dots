@@ -9,8 +9,9 @@ rofi-wayland
 alacritty
 nautilus
 zen-browser-bin
-zaccountsservice
+accountsservice
 
+fastfetch
 jq
 file
 brightnessctl
@@ -21,7 +22,7 @@ udisks2
 udiskie
 vim-plug
 
-network-manager
+networkmanager
 network-manager-applet
 bluez
 bluez-utils
