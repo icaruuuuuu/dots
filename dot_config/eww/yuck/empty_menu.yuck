@@ -11,15 +11,15 @@
 (defwidget button_column []
     (box :orientation "v" :space-evenly true :spacing 5
         (button :class "menu-btn" :cursor "pointer"
-            :onclick "swaync-client -t & scripts/open-widget none"
+            :onclick "scripts/open-widget power_menu &"
             (label :text "")
         )
         (button :class "menu-btn" :cursor "pointer"
-            :onclick "nm-connection-editor & scripts/open-widget none"
+            :onclick "scripts/open-widget none & nm-connection-editor &"
             (label :text "")
         )
         (button :class "menu-btn" :cursor "pointer"
-            :onclick "blueman-manager & scripts/open-widget none"
+            :onclick "scripts/open-widget none & blueman-manager &"
             (label :text "")
         )
         (button :class "menu-btn" :cursor "pointer"
@@ -27,7 +27,7 @@
             (label :text {mako_mode == "dnd" ? "" : ""})
         )
         (button :class "menu-btn" :cursor "pointer"
-            :onclick "nautilus & scripts/open-widget none"
+            :onclick "scripts/open-widget none & nautilus &"
             (label :text "")
         )
         (button :class "invisible-btn")))

@@ -1,0 +1,17 @@
+(defwidget power-menu []
+    (box :class "card power-menu" :orientation "h" :space-evenly false :spacing 8 :halign "center" :valign "center"
+        (button :class "menu-btn power-menu-btn"
+            :onclick "systemctl poweroff"
+            (label :text ""))
+        (button :class "menu-btn power-menu-btn"
+            :onclick "systemctl reboot"
+            (label :text ""))
+        (button :class "menu-btn power-menu-btn"
+            :onclick "hyprctl dispatch 'hl.dispatch(hl.dsp.exit())'"
+            (label :text ""))
+        (button :class "menu-btn power-menu-btn"
+            :onclick "hyprlock & scripts/open-widget none"
+            (label :text ""))
+        (button :class "menu-btn power-menu-btn"
+            :onclick "sleep 2 & scripts/open-widget none"
+            (label :text ""))))
