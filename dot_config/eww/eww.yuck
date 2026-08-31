@@ -4,3 +4,4 @@
 (include "./yuck/dashboard.yuck")
 (include "./yuck/sliders.yuck")
 (include "./yuck/menu.yuck")
+(include "./yuck/power-menu.yuck")

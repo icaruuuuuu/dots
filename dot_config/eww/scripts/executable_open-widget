@@ -1,11 +1,22 @@
 #!/bin/bash
-TARGET=$1
-WIDGETS="slider_vol slider_bri system_dashboard menu"
-for widget in $WIDGETS; do
-	eww close $widget
+myself=$(basename "$0")
+for pid in $(pidof -x "$myself"); do
+    if [ $pid != $$ ]; then
+        kill -9 $pid
+    fi
 done
 
-sleep 0.1
+TARGET=$1
+WIDGETS="menu slider_vol slider_bri system_dashboard power_menu"
+
+eww close $WIDGETS
+
+PATTERN=$(echo $WIDGETS | tr ' ' '|')
+
+while eww active-windows | grep -qE "$PATTERN"; do
+    sleep 0.01
+done
+
 if [ $TARGET == "none" ]; then
 	hyprctl dispatch 'hl.dsp.submap("reset")'
 	eww close close_overlay

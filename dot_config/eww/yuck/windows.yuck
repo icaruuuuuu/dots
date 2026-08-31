@@ -5,10 +5,11 @@
   :geometry (geometry :width "100%"
 		      :height "100%")
   :stacking "fg"
-  :focusable false
+  :focusable true
+  :namespace "close_overlay"
   (box
-     (eventbox :onclick "scripts/open-widget none"
-	(box :class "overlay"))))
+    (eventbox :onclick "scripts/open-widget none &" :class "overlay"
+    (box))))
 
 (defwindow topbar
   :monitor 0
@@ -21,7 +22,6 @@
   :reserve (struts :side "top" :distance "80px")
   :focusable false
   :exclusive true
-  :layer "top"
   :windowtype "dock"
   :wm-ignore false
   (topbar_layout)) 
@@ -46,7 +46,7 @@
 
 (defwindow system_dashboard
   :monitor 0
-  :stacking "overlay"
+  :stacking "fg"
   :geometry (geometry :x "0%" 
 		      :y "30px"
 		      :anchor "top center")
@@ -54,10 +54,20 @@
 
 (defwindow menu
     :monitor 0
-    :stacking "overlay"
+    :stacking "fg"
     :geometry (geometry :x "15%"
                         :y "6px"
                         :width "300px"
                         :height "300px"
                         :anchor "top right")
     (menu_layout))
+
+(defwindow power_menu
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "500px"
+                        :height "300px"
+                        :anchor "center")
+    (power-menu))
