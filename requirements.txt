@@ -13,6 +13,7 @@ accountsservice
 
 fastfetch
 jq
+socat
 file
 brightnessctl
 glxinfo
@@ -54,7 +55,9 @@ ttf-liberations
 noto-fonts-emoji
 noto-fonts-cjk
 woff2-font-awesome
+otf-font-awesome
 gnu-free-fonts
+adwaita-fonts
 
 sddm
 sddm-silent-theme
