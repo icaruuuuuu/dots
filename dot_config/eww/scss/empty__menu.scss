@@ -1,0 +1,81 @@
+.card, .higher-card, .menu-btn, {
+  border-radius: 8px;
+}
+
+.media-art-img, .media-art-container, .profile-picture {
+  border-radius: 12px;
+}
+
+
+.card {
+  background-color: $bg;
+  padding: 12px;
+}
+
+.higher-card {
+  background-color: #0f0f0d;
+  padding: 2px 12px 2px 12px;
+}
+
+.profile-info {
+  padding: 5px;
+}
+
+.profile-name, {
+  font-size: 20px;
+  font-weight: bold;
+  color: $color15;
+}
+
+.profile-uname, .profile-uptime, .media-artist {
+  font-size: 11px;
+  color: $color14;
+}
+
+.media-title {
+  font-weight: 500;
+  font-size: 12px;
+  color: $color15;
+}
+
+.media-status {
+  color: $color14;
+}
+
+.menu-btn {
+  background-color: #0c0c0a;
+  padding: 15px;
+  color: $color14;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu-btn:hover {
+  background-color: $color14;
+  color: #0c0c0a;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu-btn label {
+  font-size: 20px;
+}
+
+.weather-icon {
+  padding-right: 20px;
+  font-size: 50px;
+  color: $color15;
+}
+
+.weather-info {
+  padding-right: 8px;
+}
+
+.weather-temp {
+  font-size: 20px;
+  font-weight: bold;
+  color: $color14;
+}
+
+.weather-cond {
+  font-weight: bold;
+  color: $color13;
+}

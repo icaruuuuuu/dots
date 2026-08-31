@@ -1,0 +1,6 @@
+background-color=#0B0B09FF
+text-color={{color15}}FF
+progress-color=source {{color14}}FF
+
+[urgency=high]
+border-color={{color15}}FF

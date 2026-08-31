@@ -56,5 +56,8 @@ rofi.target = '~/.config/rofi/colors.rasi'
 swaync.template = 'swaync.css'
 swaync.target = '~/.config/swaync/style.css'
 
+mako.template = 'mako.colors'
+mako.target = '~/.config/mako/colors'
+
 [hooks]
-swaync-reload = 'swaync-client -rs'
+mako-reload = 'makoctl reload'

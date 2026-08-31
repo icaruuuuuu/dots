@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Busca os dados no formato: "Condição;Temperatura"
+# O uso do ';' previne problemas com condições de múltiplas palavras (ex: "Light rain")
+DATA=$(curl -s 'wttr.in?format=%C;%t&M')
+
+# Caso não haja internet ou falhe, podemos retornar um JSON vazio/erro amigável
+if [ -z "$DATA" ]; then
+    jq -n '{condition: "Offline", temperature: "--", icon: "󰖪"}'
+    exit 0
+fi
+
+# Divide a string em duas variáveis: COND (condição) e TEMP (temperatura)
+IFS=';' read -r COND TEMP <<< "$DATA"
+
+# Remove o sinal de "+" da temperatura, se houver, e tira espaços extras
+TEMP="${TEMP#+}"
+COND=$(echo "$COND" | xargs)
+
+# Define o ícone com base na condição (usando regex do bash)
+if [[ "$COND" =~ Clear|Sunny ]]; then
+    ICON=""
+elif [[ "$COND" =~ Cloudy|Overcast ]]; then
+    ICON=""
+elif [[ "$COND" =~ Rain|Drizzle|Shower ]]; then
+    ICON=""
+elif [[ "$COND" =~ Thunder|Storm ]]; then
+    ICON=""
+else
+    ICON="" # Ícone padrão (fallback)
+fi
+
+# Usa o jq para montar o JSON com segurança (escapando caracteres especiais automaticamente)
+jq -n \
+  --arg cond "$COND" \
+  --arg temp "$TEMP" \
+  --arg icon "$ICON" \
+  '{condition: $cond, temperature: $temp, icon: $icon}'

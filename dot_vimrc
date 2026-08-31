@@ -1,0 +1,32 @@
+" --- General Settings ---
+set number             " Show line numbers
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+set history=1000       " Increase command history limit
+set wildmenu           " Visual autocomplete for command menu
+
+" --- Search Settings ---
+set hlsearch           " Highlight search results
+set incsearch          " Search as you type
+set ignorecase         " Ignore case when searching
+set smartcase          " Override 'ignorecase' if search contains capital letters
+
+" --- Text Formatting & Indentation ---
+set tabstop=4          " Number of visual spaces per TAB
+set softtabstop=4      " Number of spaces a TAB counts for while editing
+set shiftwidth=4       " Number of spaces to use for autoindent
+set expandtab          " Convert TABs to spaces
+set autoindent         " Copy indent from current line when starting a new line
+
+" --- UI & Aesthetics ---
+syntax on              " Enable syntax highlighting
+set syntax=enable
+set mouse=a            " Enable mouse support in all modes
+
+" --- Plugins ---
+call plug#begin('~/vim/plugged')
+
+call plug#end()

@@ -19,11 +19,28 @@
 
 (defpoll sys_gpu :interval "24h" :initial "uninitialized" "scripts/hardware-info gpu")
 
+;; User data
+(defpoll user :interval "24h" :initial "uninitialized" "whoami")
+(defpoll hostname :interval "24h" :initial "uninitialized" "uname -n")
+(defpoll uptime :interval "24h" :initial "uninitialized" "uptime -p")
+
+;; Weather data
+(defpoll weather_data :interval "30m" "scripts/get-weather")
+
 ;; Expanders
 (defvar rev_bri false)
 (defvar rev_vol false)
 
 ;; Listeners for playerctl data
-(deflisten player_status :initial "No player found" `playerctl --follow status 2>/dev/null`)
-(deflisten player_artist :initial "" `playerctl --follow metadata --format '{{ artist }}' 2>/dev/null`)
-(deflisten player_title  :initial "" `playerctl --follow metadata --format '{{ title }}' 2>/dev/null`)
+(defpoll media_art :interval "1s"
+  "scripts/get-cover")
+(deflisten player_status :initial "Idle" 
+    `playerctl --follow status 2>/dev/null`)
+(deflisten player_artist :initial "" 
+    `playerctl --follow metadata --format '{{ artist }}' 2>/dev/null`)
+(deflisten player_title  :initial "" 
+    `playerctl --follow metadata --format '{{ title }}' 2>/dev/null`)
+(deflisten player_pos :initial "0:00"
+  `playerctl --follow position --format '{{ duration(position) }}' 2>/dev/null`)
+(deflisten player_length :initial "0:00"
+  `playerctl --follow metadata --format '{{ duration(mpris:length) }}' 2>/dev/null`)

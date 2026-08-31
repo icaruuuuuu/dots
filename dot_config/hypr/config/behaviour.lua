@@ -48,7 +48,7 @@ hl.window_rule({
 hl.layer_rule({
     name = "eww",
     match = { namespace = "gtk-layer-shell" },
-    animation = "popin 80%",
+    animation = "slide down",
 })
 
 hl.layer_rule({
@@ -61,6 +61,12 @@ hl.layer_rule({
     name = "rofi",
     match = { namespace = "rofi" },
     animation = "popin 80%",
+})
+
+hl.layer_rule({
+    name = "mako",
+    match = { namespace = "notifications" },
+    animation = "slide right",
 })
 
 hl.config({
@@ -80,6 +86,7 @@ hl.config({
 hl.on("hyprland.start", function () 
     hl.exec_cmd("eww open topbar &")
     hl.exec_cmd("awww-daemon &")
+    hl.exec_cmd("mako 2> /tmp/mako.err &")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 TARGET=$1
-WIDGETS="slider_vol slider_bri system_dashboard"
+WIDGETS="slider_vol slider_bri system_dashboard menu"
 for widget in $WIDGETS; do
 	eww close $widget
 done
