@@ -31,6 +31,9 @@
 (defvar rev_bri false)
 (defvar rev_vol false)
 
+;; DND status
+(deflisten mako_mode :initial "normal" "scripts/get-mako-mode")
+
 ;; Listeners for playerctl data
 (defpoll media_art :interval "1s"
   "scripts/get-cover")

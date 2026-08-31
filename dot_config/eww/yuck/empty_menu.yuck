@@ -23,8 +23,8 @@
             (label :text "")
         )
         (button :class "menu-btn" :cursor "pointer"
-            :onclick "swaync-client -t & scripts/open-widget none"
-            (label :text "")
+            :onclick "makoctl mode -t dnd"
+            (label :text {mako_mode == "dnd" ? "" : ""})
         )
         (button :class "menu-btn" :cursor "pointer"
             :onclick "nautilus & scripts/open-widget none"

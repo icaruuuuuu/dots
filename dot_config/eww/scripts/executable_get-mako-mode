@@ -1,0 +1,20 @@
+#!/bin/bash
+
+previous_mode=""
+
+while true; do
+    # Captura os modos ativos no mako
+    current_mode=$(makoctl mode 2>/dev/null)
+    
+    # Atualiza o eww apenas se houver mudança de estado
+    if [ "$current_mode" != "$previous_mode" ]; then
+        if [[ "$current_mode" == *"dnd"* ]]; then
+            echo "dnd"
+        else
+            echo "normal"
+        fi
+        previous_mode="$current_mode"
+    fi
+    
+    sleep 1
+done
