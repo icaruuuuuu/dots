@@ -10,12 +10,8 @@ TARGET=$1
 WIDGETS="menu slider_vol slider_bri system_dashboard power_menu"
 
 eww close $WIDGETS
-
-PATTERN=$(echo $WIDGETS | tr ' ' '|')
-
-while eww active-windows | grep -qE "$PATTERN"; do
-    sleep 0.01
-done
+PID=$!
+wait $PID
 
 if [ $TARGET == "none" ]; then
 	hyprctl dispatch 'hl.dsp.submap("reset")'
