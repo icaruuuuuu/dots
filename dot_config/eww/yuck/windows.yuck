@@ -48,7 +48,7 @@
   :monitor 0
   :stacking "fg"
   :geometry (geometry :x "0%" 
-		      :y "30px"
+		      :y "5px"
 		      :anchor "top center")
   (dashboard_layout))
 
@@ -68,6 +68,6 @@
     :geometry (geometry :x "0%"
                         :y "0%"
                         :width "500px"
-                        :height "300px"
+                        :height "90px"
                         :anchor "center")
     (power-menu))
