@@ -2,11 +2,6 @@
   border-radius: 8px;
 }
 
-.media-art-img, .media-art-container, .profile-picture {
-  border-radius: 12px;
-}
-
-
 .card {
   background-color: $bg;
   padding: 12px;
@@ -15,10 +10,24 @@
 .higher-card {
   background-color: #0f0f0d;
   padding: 2px 12px 2px 12px;
+  min-width: 200px;
+}
+
+.picture {
+  background-size: cover;
+  background-position: center;
+
+  min-width: 70px;
+  min-height: 70px;
+
+  border-radius: 8px;
+  margin: 10px 0 10px 0;
+
 }
 
 .profile-info {
   padding: 5px;
+  margin-left: 8px;
 }
 
 .profile-name, {
@@ -44,7 +53,8 @@
 
 .menu-btn {
   background-color: #0c0c0a;
-  padding: 15px;
+  min-width: 50px;
+  min-height: 50px;
   color: $color14;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -60,8 +70,9 @@
 }
 
 .weather-icon {
-  padding-right: 20px;
+  padding: 0 0 0 0;
   font-size: 50px;
+  min-width: 70px;
   color: $color15;
 }
 

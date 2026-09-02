@@ -7,8 +7,8 @@
 # It's designed to be called by EWW and is optimized to minimize
 # network and disk I/O.
 
-WIDGET_DIR=$(dirname "$0")
-DEFAULT_COVER="$WIDGET_DIR/assets/DEFAULTImage.jpeg"
+WIDGET_DIR="/home/$USER/.config/eww"
+DEFAULT_COVER="$WIDGET_DIR/assets/fallback-cover.png"
 CACHE_DIR="$HOME/.cache/eww/music-widget"
 mkdir -p "$CACHE_DIR"
 

@@ -34,25 +34,21 @@
 
 (defwidget user_info []
     (box :class "higher-card" :orientation "h" :space-evenly false
-    (image :class "profile-picture"
-           :path "/var/lib/AccountsService/icons/${user}"
-           :image-width 70
-           :image-height 70)
-    (box :class "profile-info" :space-evenly false :orientation "v" :halign "center" :valign "center"
-        (label :class "profile-name" :text "${user}" :halign "start")
-        (label :class "profile-uname" :text "${user}@${hostname}" :halign "start")
-        (label :class "profile-uptime" :text "${uptime}" :halign "start"))))
+        (box :class "picture"
+             :style "background-image: url('/var/lib/AccountsService/icons/${user}')")
+        (box :class "profile-info" :space-evenly false :orientation "v" :halign "center" :valign "center"
+            (label :class "profile-name" :text "${user}" :halign "start")
+            (label :class "profile-uname" :text "${user}@${hostname}" :halign "start")
+            (label :class "profile-uptime" :text "${uptime}" :halign "start"))))
 
 (defwidget media_player []
     (box :class "higher-card media-card" :orientation "h" :space-evenly false :spacing 12
         (box :class "media-art-container" :valign "center" :halign "center"
-            (image :class "media-art-img"
-                   :path {media_art != "" ? media_art : "/tmp/cover.png"}
-                   :image-width 70
-                   :image-height 70))
+            (box :class "picture"
+                 :style "background-image: url('${media_art}')"))
         (box :class "media-info" :orientation "v" :space-evenly false :valign "center" :spacing 2
             (label :class "media-title" 
-                   :text player_title 
+                   :text {player_title == "" ? "Nothing Playing" : "${player_title}"} 
                    :halign "start" 
                    :limit-width 24)
             (label :class "media-artist"
@@ -67,10 +63,10 @@
                    ))))
 
 (defwidget weather_forecast []
-    (box :class "higher-card" :orientation "h" :space-evenly false :halign "start" :hexpand true
+    (box :class "higher-card" :orientation "h" :space-evenly false :halign "start"
         (label :class "weather-icon" :text "${weather_data.icon}")
-        (box :class "weather-info" :orientation "v" :space-evenly false :valign "center" :hexpand true
-            (label :class "weather-temp" :text "${weather_data.temperature}" :halign "start")
+        (box :class "weather-info" :orientation "v" :space-evenly false :valign "center"
+            (label :class "weather-temp" :text "${weather_data.temperature}" :halign "start" :truncate true :show-truncated false)
             (label :class "weather-cond" :text "${weather_data.condition}" :halign "start"))))
 
 
