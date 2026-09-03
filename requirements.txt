@@ -22,6 +22,7 @@ fastfetch
 udisks2
 udiskie
 vim-plug
+playerctl
 
 networkmanager
 network-manager-applet
