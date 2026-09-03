@@ -3,14 +3,12 @@ install-ble() {
 	curl -LO https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz
 	tar xJf ble-nightly.tar.xz
 	bash ble-nightly/ble.sh --install ~/.local/share
-	[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
-	[[ ! ${BLE_VERSION-} ]] || ble-attach
 	rm -r ble-nightly ble-nightly.tar.xz
 }
 
 install-gtk-theme() {
     git clone https://github.com/vinceliuice/Graphite-gtk-theme gtk-theme 
-    (cd gtk-theme && ./install.sh -d ~/.local/share/themes -t default -c dark -s compact -l --tweaks darker && cd .. && rm -r gtk-theme)
+    (cd gtk-theme && ./install.sh -d ~/.local/share/themes -t default -c dark -s compact -l --tweaks darker && cd .. && rm -rf gtk-theme)
 }
 
 install-dependencies() {
@@ -26,6 +24,12 @@ install-dependencies() {
 	done
 }
 
+configure-sddm() {
+    sudo mv "/home/$USER/.sddm/sddm.conf.d" "/etc"
+    sudo systemctl enable --now sddm
+}
+
 install-ble
 install-gtk-theme
 install-dependencies "$CHEZMOI_SOURCE_DIR/requirements.txt"
+configure-sddm
