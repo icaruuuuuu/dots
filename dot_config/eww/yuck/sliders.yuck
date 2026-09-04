@@ -21,6 +21,6 @@
     (scale :class "osd-scale"
            :hexpand true
            :min 0
-           :max 101
+           :max 50
            :value {slider_data.brightness}
-           :onchange "brightnessctl set {}%")))
+           :onchange "ddcutil setvcp 10 {} --no-verify 2> /tmp/ddcutil.err; echo {} >> /tmp/ddcutil.err")))

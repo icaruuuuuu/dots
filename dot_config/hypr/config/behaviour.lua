@@ -45,6 +45,15 @@ hl.window_rule({
     move = {"(monitor_w / 6.66)",30}, 
 })
 
+hl.window_rule({
+    match = {
+        class = "com.gabm.satty"
+    },
+
+    float = true,        
+    size = {"(monitor_w * 0.7)","(monitor_h * 0.7)"}, 
+})
+
 hl.layer_rule({
     name = "eww",
     match = { namespace = "gtk-layer-shell" },
@@ -97,7 +106,7 @@ end)
 
 hl.monitor({
     output   = "",
-    mode     = "1920x1080@60.00Hz",
+    mode     = "2560x1440@179.92Hz",
     position = "auto",
     scale    = "auto",
 })

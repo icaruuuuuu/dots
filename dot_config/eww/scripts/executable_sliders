@@ -1,13 +1,22 @@
 #!/bin/bash
 
+get_ddc_brightness() {
+  ddcutil getvcp 10 2>/dev/null | grep -oP 'current value =\s*\K[0-9]+'
+}
+
 LAST_VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
-LAST_BRIGHT=$(brightnessctl -m | awk -F, '{print substr($4, 1, length($4)-1)}')
+LAST_BRIGHT=$(get_ddc_brightness)
+
+[[ -z "$LAST_BRIGHT" ]] && LAST_BRIGHT=0
 
 echo "{\"volume\": $LAST_VOL, \"brightness\": $LAST_BRIGHT}"
 
 while true; do
   VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
-  BRIGHT=$(brightnessctl -m | awk -F, '{print substr($4, 1, length($4)-1)}')
+  BRIGHT=$(get_ddc_brightness)
+
+  # Fallback if ddcutil temporarily drops/fails to read
+  [[ -z "$BRIGHT" ]] && BRIGHT=$LAST_BRIGHT
 
   if [[ "$VOL" != "$LAST_VOL" || "$BRIGHT" != "$LAST_BRIGHT" ]]; then
     echo "{\"volume\": $VOL, \"brightness\": $BRIGHT}"
@@ -16,3 +25,4 @@ while true; do
   fi
   sleep 0.5
 done
+

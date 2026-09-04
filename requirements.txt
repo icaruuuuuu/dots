@@ -10,6 +10,8 @@ alacritty
 nautilus
 zen-browser-bin
 accountsservice
+hyprshot
+satty
 
 fastfetch
 jq
@@ -23,6 +25,7 @@ udisks2
 udiskie
 vim-plug
 playerctl
+wl-clipboard
 
 networkmanager
 network-manager-applet

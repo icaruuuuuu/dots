@@ -1,7 +1,8 @@
 programs = {
 	terminal = "alacritty",
 	launcher = "rofi -show drun",
-	filemanager = "nautilus"
+	filemanager = "nautilus",
+    screenshot = "hyprshot -m region --raw | satty --filename -"
 }
 
 
